@@ -1,0 +1,28 @@
+{
+  "name": "jadmaid",
+  "version": "2.0.0",
+  "description": "A jadmaid bot using eris",
+  "main": "app.js",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint --ignore-path .gitignore \"**/*.js\"",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "author": "JadlionHD (jadmaidbot@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "cron": "^1.8.2",
+    "dblapi.js": "^2.4.1",
+    "dotenv": "^8.2.0",
+    "eris": "^0.13.3",
+    "fs": "^0.0.2",
+    "kitsu.js": "^2.0.0",
+    "mathjs": "^7.2.0",
+    "moment-timezone": "^0.5.31",
+    "ms": "^2.1.2",
+    "path": "^0.12.7",
+    "request": "^2.88.2"
+  }
+}
