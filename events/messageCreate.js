@@ -1,3 +1,5 @@
+const cooldown = new Set();
+
 module.exports = async (client, msg) => {
 
 

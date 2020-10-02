@@ -8,8 +8,6 @@ exports.run = function(client, msg, args) {
 		}
 	    msgEmbed.embed = messages[0].embeds[0]
 	    delete msgEmbed.embed.type;
-		msgEmbed.embed.footer.text = `Replying to ${user.username}#${user.discriminator}`;
-		msgEmbed.embed.footer.icon_url = `${user.avatarURL}`;
 	    msg.channel.createMessage(msgEmbed)
 	})
 }

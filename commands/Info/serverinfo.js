@@ -22,8 +22,7 @@ exports.run = function (client, msg, args) {
 • Boosts: ${guild.premiumSubscriptionCount} (Level ${guild.premiumTier})
 • CreatedAt: ${client.util.timeStamp(guild.createdAt)}
 • Verification Level: ${verifyLevel[guild.verificationLevel]}
-• Features:
-${guild.features.map(fitur => `${fitur[0] + fitur.toLowerCase().slice(1)}`).join(", ").replace(/_/g, ' ')}
+• Features: ${guild.features.map(fitur => `${fitur[0] + fitur.toLowerCase().slice(1)}`).join(", ").replace(/_/g, ' ')}
 \`\`\`
 `,
         footer: {

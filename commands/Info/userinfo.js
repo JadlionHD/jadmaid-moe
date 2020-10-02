@@ -1,8 +1,9 @@
 exports.run = function (client, msg, args) {
     
-		let user = msg.mentions[0] || msg.author;
+		let user = msg.mentions[0] || client.users.get(args[0]) ||msg.author;
 		let member = msg.channel.guild.members.get(user.id);
         let userReply = msg.author;
+        
     msg.channel.createMessage({embed: {
         color: client.config.colors.success,
         description: `
@@ -13,8 +14,8 @@ exports.run = function (client, msg, args) {
 • Roles: ${member.roles.length}
 • Status: ${member.status}
 • Rich Presence: ${member.game ? member.game.name : "None"}
-• JoinedGuildAt: ${client.util.timeStamp(member.joinedAt)}
-• CreatedAt: ${client.util.timeStamp(user.createdAt)}
+• Joined Guild At: ${client.util.timeStamp(member.joinedAt)}
+• Created Discord At: ${client.util.timeStamp(user.createdAt)}
 \`\`\`
 `,
         footer: {
@@ -26,5 +27,6 @@ exports.run = function (client, msg, args) {
         }
     }});
 };
+
 
 exports.aliases = [];

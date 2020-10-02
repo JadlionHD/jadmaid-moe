@@ -8,6 +8,16 @@ const client = new ErisClient(require('./config.js'), {
 	disableEveryone: true
 });
 const request = require("request");
+const DBL = require("dblapi.js");
+const dbl = new DBL(process.env.DBL_TOKEN, {
+	statsInterval: 1800000
+}, client)
+
+setTimeout(() => {
+	dbl.postStats(client.guilds.size);
+	console.log(`[SYSTEM] [${client.util.getCurrentTime()}] Posted Server Count`);
+}, 15 * 1000)
+
 
 let dailyMessage = new cron.CronJob("00 12 * * *", async () => {
 	request({
@@ -28,17 +38,6 @@ let dailyMessage = new cron.CronJob("00 12 * * *", async () => {
 \`\`\`
 `,
 					fields: [
-						{
-							name: `Today:`,
-							value: `
-\`\`\`yaml
-• Confirmed: ${client.util.numberComa(body.todayCases)}
-• Deaths: ${client.util.numberComa(body.todayDeaths)}
-• Recovered: ${client.util.numberComa(body.todayRecovered)}
-\`\`\`
-`,
-							inline: true
-						},
 						{
 							name: `Total:`,
 							value: `

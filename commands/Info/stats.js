@@ -29,7 +29,7 @@ exports.run = async function (client, msg, args) {
 **System Info:**
 \`\`\`yaml
 • Uptime: ${client.util.secondParser(process.uptime())}
-• Eris Version: ${VERSION}
+• Library Used: Eris (v${VERSION})
 • Node Version: ${process.version}
 • RAM Usage: ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)+'MB'}
 \`\`\`
