@@ -6,4 +6,9 @@ exports.run = function(client, msg, args) {
 	msg.channel.createMessage("Please check your direct message");
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 3,
+	ratelimit: 1,
+	aliases: ["helpme"]
+}
+

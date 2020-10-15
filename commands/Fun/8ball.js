@@ -4,4 +4,8 @@ exports.run = function (client, msg, args) {
 	msg.channel.createMessage(`${msg.author.mention} ${ball[randomball]}`)
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 3,
+	ratelimit: 1,
+	aliases: []
+}

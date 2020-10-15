@@ -2,7 +2,7 @@ const request = require("request");
 
 exports.run = function(client, msg, args) {
 	let req = args.join(" ");
-	if(!req) return msg.channel.createMessage("Please enter specific country you want to see");
+	if(!req) return msg.channel.createMessage("<:cross:762537848691752960> Please enter specific country you want to see");
 	function numberWithCommas(x) {
 		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
@@ -12,7 +12,7 @@ exports.run = function(client, msg, args) {
 		json: true
 	}, function (err, res, body) {
 		if(res.statusCode === 404) {
-			return msg.channel.createMessage("Please enter specific country you want to see");
+			return msg.channel.createMessage("<:cross:762537848691752960> Please enter specific country you want to see");
 		}
 
 		if(res.statusCode === 200) {
@@ -67,4 +67,8 @@ exports.run = function(client, msg, args) {
 	})
 }
 
-exports.aliases = ["covid"];
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: ["covid"]
+}

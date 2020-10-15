@@ -3,7 +3,7 @@ const kitsu = new Kitsu();
 
 exports.run = function (client, msg, args) {
 	const req = args.join(" ");
-	if(!req) return msg.channel.createMessage("Please enter specific anime you want to search");
+	if(!req) return msg.channel.createMessage("<:cross:762537848691752960> Please enter specific anime you want to search");
 
 
 	const search = msg.content.split(/\s+/g).slice(1).join(" ");
@@ -52,4 +52,8 @@ exports.run = function (client, msg, args) {
 	})
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
+}

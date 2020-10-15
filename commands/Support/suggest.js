@@ -15,4 +15,8 @@ exports.run = function(client, msg, args) {
 	client.createMessage("708696129843494944", msgEmbed)
 }
 
-exports.aliases = ["suggestion"];
+exports.help = {
+	cooldown: 3600,
+	ratelimit: 3,
+	aliases: ["suggestion"]
+}

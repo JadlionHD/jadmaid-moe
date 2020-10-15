@@ -3,7 +3,8 @@ const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
 const path = require("path");
 
-let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support"];
+let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility"];
+//let nested_folder = ["Support"];
 
 class ErisBot extends Client {
 
@@ -15,6 +16,7 @@ class ErisBot extends Client {
         this.util = require('./util.js');
         this.commands = new Collection();
         this.aliases = new Collection();
+        this.cooldown = new Collection();
         this._loadCommands();
         this._eventLoader(this);
         this.fetch = require('axios');
@@ -32,12 +34,11 @@ class ErisBot extends Client {
 
                     this.commands.set(name, props)
 
-                    if(props.aliases) {
-                        for(const alias of props.aliases) {
+                    if(props.help.aliases) {
+                        for(const alias of props.help.aliases) {
                             this.aliases.set(alias, name);
                         }
                     }
-
                 })
             })
         })

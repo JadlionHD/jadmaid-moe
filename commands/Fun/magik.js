@@ -1,9 +1,11 @@
 const request = require("request");
 
 exports.run = function (client, msg, args) {
-	let say = args[0];
-	let user = msg.mentions[0] || msg.author || client.users.get(say);
-	let targetAv = msg.attachments[0] ? msg.attachments[0].url : user.dynamicAvatarURL("png", 1204);
+	let say = args.join(" ");
+	let user = msg.mentions[0] || client.users.get(say) || msg.author;
+	let targetAv = msg.attachments[0] ? msg.attachments[0].url : user.dynamicAvatarURL("png", 4096);
+
+
 	msg.channel.createMessage("Generating...")
 
 	request({
@@ -18,4 +20,8 @@ exports.run = function (client, msg, args) {
 	})
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 30,
+	ratelimit: 1,
+	aliases: []
+}

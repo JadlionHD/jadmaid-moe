@@ -25,4 +25,8 @@ exports.run = function (client,msg, args) {
 	})
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
+}

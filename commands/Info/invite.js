@@ -14,4 +14,8 @@ https://top.gg/bot/704669618719162449/vote
 	msg.channel.createMessage(msgEmbed);
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 3,
+	ratelimit: 1,
+	aliases: []
+}

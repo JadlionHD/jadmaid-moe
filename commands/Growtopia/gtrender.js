@@ -3,8 +3,8 @@ const request = require("request");
 exports.run = function (client, msg, args) {
 	let user = msg.author;
 	let req = args.join(" ");
-	let notRendered = "The world of you has been request is not rendered yet, please render it first!";
-	if(client.util.isAlphaNumeric(req) === false) return msg.channel.createMessage("Please enter a valid alphanumeric");
+	let notRendered = "<:cross:762537848691752960> The world of you has been request is not rendered yet, please render it first!";
+	if(client.util.isAlphaNumeric(req) === false) return msg.channel.createMessage("<:cross:762537848691752960> Please enter a valid alphanumeric");
 	if(!req) return msg.channel.createMessage("Please enter specific world");
 
 	request({
@@ -31,4 +31,8 @@ exports.run = function (client, msg, args) {
 	})
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
+}

@@ -3,8 +3,8 @@ const request = require("request");
 exports.run = function (client , msg, args) {
 	let req = args.join(" ");
 
-	if(client.util.isAlphaNumeric(req) === false) return msg.channel.createMessage("Please enter a valid alphanumeric");
-	if(!req) return msg.channel.createMessage("Please enter specific name of the character anime!");
+	if(client.util.isAlphaNumeric(req) === false) return msg.channel.createMessage("<:cross:762537848691752960> Please enter a valid alphanumeric");
+	if(!req) return msg.channel.createMessage("<:cross:762537848691752960> Please enter specific name of the character anime!");
 
 
 	request({
@@ -44,4 +44,10 @@ exports.run = function (client , msg, args) {
 			msg.channel.createMessage("Character not exist! try search other.")
 		}
 	})
+}
+
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
 }

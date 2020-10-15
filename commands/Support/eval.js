@@ -57,4 +57,8 @@ exports.run = async (client, msg, args) => {
   });
 }
 
-exports.aliases = [];
+exports.help = {
+  cooldown: 3,
+  ratelimit: 1,
+  aliases: ["ee"]
+}

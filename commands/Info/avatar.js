@@ -2,7 +2,7 @@ exports.run = function (client, msg, args) {
     let user = msg.mentions[0] || client.users.get(args[0]);
     let userReply = msg.author;
     if(!user) user = msg.author;
-    let avatarLarge = user.dynamicAvatarURL("", 1024);
+    let avatarLarge = user.dynamicAvatarURL("", 4096);
 
     msg.channel.createMessage({
         embed: {
@@ -20,4 +20,8 @@ exports.run = function (client, msg, args) {
     })
 }
 
-exports.aliases = ["av"];
+exports.help = {
+    cooldown: 3,
+    ratelimit: 1,
+    aliases: ["av"]
+}

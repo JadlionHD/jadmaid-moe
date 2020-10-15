@@ -12,7 +12,7 @@ exports.run = function(client, msg, args) {
 				embed: {
 					color: client.config.colors.success,
 					image: {
-						url: `${body.neko}`
+						url: `${body.message}`
 					},
 			        footer: {
 			        	text: `Replying to ${user.username}#${user.discriminator}`,
@@ -29,19 +29,23 @@ exports.run = function(client, msg, args) {
 	if(!msgNeko) return msg.channel.createMessage("argument: <sfw/nsfw>");
 
 	if(msgNeko === "sfw") {
-		let nekourl1 = "https://www.nekos.life/api/neko";
+		let nekourl1 = "https://nekobot.xyz/api/image?type=neko";
 		requesting(nekourl1, "GET", true)
 	}
 
 	if(msgNeko === "nsfw") {
 		if (msg.channel.nsfw === true) {
-			let nekourl2 = "https://www.nekos.life/api/lewd/neko";
+			let nekourl2 = "https://nekobot.xyz/api/image?type=hneko";
 			requesting(nekourl2, "GET", true)
 		} else {
-			msg.channel.createMessage("This command require `NSFW` Permission")
+			msg.channel.createMessage("<:cross:762537848691752960> This command require `NSFW` Permission")
 		}
 	}
 
 }
 
-exports.aliases = [];
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
+}

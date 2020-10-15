@@ -28,11 +28,20 @@ exports.run = function (client, msg, args) {
             		name: `<:Question:538303543363502082> Info commands:`,
             		value: `
 \`\`\`yaml
-avatar, corona, help, invite, math, ping, serverinfo, stats, topic, userinfo
+avatar, corona, help, invite, math, topic
 \`\`\`
 `,
             		inline: true
             	},
+                {
+                    name: `🔨 Utility`,
+                    value: `
+\`\`\`yaml
+serverinfo, ping, stats, userinfo, showemoji, checkperms
+\`\`\`
+`,
+                    inline: true
+                },
             	{
             		name: `<:growtopia_title:538303118698610702> Growtopia Reference:`,
             		value: `
@@ -69,4 +78,8 @@ suggest, support
     });
 };
 
-exports.aliases = [];
+exports.help = {
+    cooldown: 3,
+    ratelimit: 1,
+    aliases: []
+}

@@ -23,6 +23,7 @@
     "moment-timezone": "^0.5.31",
     "ms": "^2.1.2",
     "path": "^0.12.7",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "scrape-it": "^5.2.4"
   }
 }

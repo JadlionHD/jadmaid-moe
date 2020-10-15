@@ -26,3 +26,9 @@ exports.run = function (client, msg, args) {
 		msg.channel.createMessage(msgEmbed);
 	})
 }
+
+exports.help = {
+	cooldown: 5,
+	ratelimit: 1,
+	aliases: []
+}
