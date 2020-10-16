@@ -14,13 +14,25 @@ module.exports = async (client, msg) => {
     if (!msg.content.startsWith(client.config.PREFIX)) return;
 
     let [command, ...args] = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
-    
+
     if (client.aliases.has(command)) {
         command = client.aliases.get(command);
     }
 
     if (!client.commands.has(command)) {
         return msg.channel.createMessage("Unknown Command. Enter `j!help` for a list of valid commands.")
+    }
+
+    // Client Permissions
+    /*
+    if(client.commands.get(command).help.clientPerms.length === 1 && client.commands.get(command).help.clientPerms.some(p => msg.channel.permissionsOf(client.user.id).has(p) === false)) {
+        return msg.channel.createMessage(`${msg.author.mention}, I'm missing permission of: \`${client.commands.get(command).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}\` to use this command`)
+    }
+    */
+
+    // User Permissions
+    if(client.commands.get(command).help.userPerms.length === 1 && client.commands.get(command).help.userPerms.some(p => msg.channel.permissionsOf(msg.author.id).has(p) === false)) {
+        return msg.channel.createMessage(`${msg.author.mention}, You must have permission of: \`${client.commands.get(command).help.userPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}\` to use this command`)
     }
 
     // cooldown

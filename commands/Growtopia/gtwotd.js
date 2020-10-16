@@ -28,5 +28,6 @@ exports.run = function (client,msg, args) {
 exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
+	userPerms: [],
 	aliases: []
 }

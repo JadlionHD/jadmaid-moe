@@ -17,5 +17,6 @@ https://top.gg/bot/704669618719162449/vote
 exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
+	userPerms: [],
 	aliases: []
 }

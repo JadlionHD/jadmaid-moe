@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility"];
-//let nested_folder = ["Support"];
+//let nested_folder = ["Testing", "Support"];
 
 class ErisBot extends Client {
 

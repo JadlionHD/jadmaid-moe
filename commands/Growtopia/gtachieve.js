@@ -33,5 +33,6 @@ ${achieve[req.toLowerCase()].desc}
 exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
+	userPerms: [],
 	aliases: []
 }
