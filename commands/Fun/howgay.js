@@ -14,5 +14,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "gay r8 machine",
+    usage: `j!howgay [userid/mention]`,
+    example: `j!howgay`,
 	aliases: []
 }

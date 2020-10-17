@@ -47,5 +47,8 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    description: "Showing a server information",
+    usage: `j!serverinfo (no argument)`,
+    example: `j!serverinfo`,
     aliases: []
 }

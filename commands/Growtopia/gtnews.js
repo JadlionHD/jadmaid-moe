@@ -16,5 +16,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Latest news about growtopia",
+    usage: `j!gtnews (no argument)`,
+    example: `j!gtnews`,
 	aliases: []
 }

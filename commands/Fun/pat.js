@@ -31,5 +31,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Random gif of pat",
+    usage: `j!pat (no argument)`,
+    example: `j!pat`,
 	aliases: []
 }

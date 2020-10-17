@@ -32,5 +32,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "A Calculator",
+    usage: `j!math [Number that you want to calculate]`,
+    example: `j!math 9+10`,
 	aliases: []
 }

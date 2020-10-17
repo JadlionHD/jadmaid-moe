@@ -19,5 +19,8 @@ exports.help = {
 	cooldown: 3600,
 	ratelimit: 3,
 	userPerms: [],
+    description: "Suggesting a new future of the bot",
+    usage: `j!suggest [argument]`,
+    example: `j!suggest make a ping commands!`,
 	aliases: ["suggestion"]
 }

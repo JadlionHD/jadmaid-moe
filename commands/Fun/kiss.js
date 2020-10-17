@@ -31,5 +31,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Random gif of kiss",
+    usage: `j!kiss (no argument)`,
+    example: `j!kiss`,
 	aliases: []
 }

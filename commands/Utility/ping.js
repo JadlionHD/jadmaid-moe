@@ -21,5 +21,8 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    description: "Testing Latency of Discord API",
+    usage: `j!ping (no argument)`,
+    example: `j!ping`,
     aliases: []
 }

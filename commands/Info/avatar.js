@@ -24,5 +24,8 @@ exports.help = {
     cooldown: 3,
     ratelimit: 1,
     userPerms: [],
+    description: "Show avatar of users",
+    usage: `j!avatar [userid/mention]`,
+    example: `j!avatar @JadlionHD`,
     aliases: ["av"]
 }

@@ -34,5 +34,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Get growtopia achievements information",
+    usage: `j!gtachieve <name achievements>`,
+    example: `j!gtachieve builder`,
 	aliases: []
 }

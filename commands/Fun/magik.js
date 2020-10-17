@@ -24,5 +24,8 @@ exports.help = {
 	cooldown: 30,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Generate mAgIK pIcTuRe",
+    usage: `j!magik [userid/mention/attachments]`,
+    example: `j!magik @JadlionHD\nj!magik (insert some attachment)`,
 	aliases: []
 }

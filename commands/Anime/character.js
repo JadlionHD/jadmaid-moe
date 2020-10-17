@@ -50,5 +50,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
-	aliases: []
+    description: "Search some anime/manga characters",
+    usage: `j!character <character name>`,
+    example: `j!character kirigaya kazuto`,
+	aliases: ["chara"]
 }

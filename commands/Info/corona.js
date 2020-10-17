@@ -71,5 +71,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Showing statistic of covid-19",
+    usage: `j!corona [country]`,
+    example: `j!corona indonesia`,
 	aliases: ["covid"]
 }

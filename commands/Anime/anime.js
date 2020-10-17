@@ -56,5 +56,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Search some animes",
+    usage: `j!anime <anime>`,
+    example: `j!anime konosuba`,
 	aliases: []
 }

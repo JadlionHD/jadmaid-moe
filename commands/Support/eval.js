@@ -61,5 +61,8 @@ exports.help = {
   cooldown: 3,
   ratelimit: 1,
   userPerms: [],
+  description: "A Shortcut code for developer",
+  usage: `j!eval [argument]`,
+  example: `j!eval console.log("Hello")`,
   aliases: []
 }

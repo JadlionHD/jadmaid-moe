@@ -7,6 +7,9 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Testing puporses",
+    usage: `j!test (no argument)`,
+    example: `j!test`,
 	aliases: []
 }
 

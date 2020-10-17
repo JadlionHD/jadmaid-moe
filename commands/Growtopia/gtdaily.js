@@ -37,5 +37,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Getting growtopia daily information",
+    usage: `j!gtdaily (no argument)`,
+    example: `j!gtdaily`,
 	aliases: []
 }

@@ -29,5 +29,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Get growtopia daily world of the day!",
+    usage: `j!gtwotd (no argument)`,
+    example: `j!wotd`,
 	aliases: []
 }

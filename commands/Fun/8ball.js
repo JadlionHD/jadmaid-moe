@@ -8,5 +8,8 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Random answer from 8ball",
+    usage: `j!8ball [argument]`,
+    example: `j!8ball can i get money?`,
 	aliases: []
 }

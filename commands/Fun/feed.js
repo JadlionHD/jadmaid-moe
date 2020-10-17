@@ -31,5 +31,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Random gif of feed",
+    usage: `j!feed (no argument)`,
+    example: `j!feed`,
 	aliases: []
 }

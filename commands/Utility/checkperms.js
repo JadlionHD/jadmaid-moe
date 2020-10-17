@@ -20,5 +20,8 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    description: "Check a permission of the users!",
+    usage: `j!checkperms [userid/mention]`,
+    example: `j!checkperms @JadlionHD`,
     aliases: []
 }

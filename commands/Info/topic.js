@@ -19,5 +19,8 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+    description: "Generate a random topic",
+    usage: `j!topic (no argument)`,
+    example: `j!topic`,
 	aliases: []
 }
