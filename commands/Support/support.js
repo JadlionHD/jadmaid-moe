@@ -3,7 +3,12 @@ exports.run = function(client, msg, args) {
 	msg.author.getDMChannel().then( (message) => {
 		message.createMessage(`**Support Server**\nhttps://discord.gg/zCr2jeZ`)
 	})
-	msg.channel.createMessage("Please check your direct message");
+	msg.channel.createMessage(`${msg.author.mention} Please check your direct message`).then((message) => {
+	    setTimeout(() => {
+	        message.delete();
+
+	    }, 7 * 1000)
+	})
 }
 
 exports.help = {

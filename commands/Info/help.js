@@ -8,6 +8,11 @@ exports.run = function (client, msg, args) {
                 color: client.config.colors.success,
                 title: `Command: ${client.config.PREFIX}${args[0]}`,
                 description: `
+\`\`\`
+<> = Optional!
+[] = Required!
+() = Comments!
+\`\`\`
 **Description:** ${client.commands.get(args[0]).help.description}
 **Cooldown:** ${client.commands.get(args[0]).help.cooldown} seconds
 **Aliases:** ${client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
@@ -29,11 +34,9 @@ ${client.commands.get(args[0]).help.example}
  \`\`\`yaml
 • Prefix: ${client.config.PREFIX}
 • Help commands: ${client.config.PREFIX}help
-• <> = Optional!
-• [] = Required!
-• () = Comments!
 • Website: https://jadmaid.xyz
 • Support server: https://discord.gg/zCr2jeZ
+• Do j!help <commands> to see detail command!
 \`\`\`
 `,
                 fields: [
