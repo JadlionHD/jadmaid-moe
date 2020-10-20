@@ -38,7 +38,7 @@ module.exports = async (client, msg) => {
         const current = client.cooldown.get(`${command}-${msg.author.id}`);
         if(!current) client.cooldown.set(`${command}-${msg.author.id}`, 1);
         else {
-            if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} you're ratelimited! please wait ${ms(client.commands.get(command).help.cooldown * 1000)}`).then((message) => {
+            if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} You are too quick using ${command} command! Please wait ${ms(client.commands.get(command).help.cooldown * 1000)}`).then((message) => {
                 setTimeout(() => {
                     message.delete();
 

@@ -60,12 +60,14 @@ query {
 `
 		}
 	}, function(err, res, body) {
+		if(!body.data.Media.description) return msg.channel.createMessage("<:cross:762537848691752960> No result found!");
+
 		if(res.statusCode === 404 || res.statusCode === 400) {
 			msg.channel.createMessage("<:cross:762537848691752960> No result found!")
 		}
 		
 		if(res.statusCode === 200) {
-			let splitArray = splitter(body.data.Media.description.replace(/<br>|_/g, ""), 1024);
+			let splitArray = splitter(body.data.Media.description, 1024);
 			let msgEmbed = {
 				embed: {
 					title: `${body.data.Media.title.romaji}`,
@@ -99,8 +101,9 @@ query {
 				}
 			}
 			for(let i = 0; i < splitArray.length; i++) {
-				let name = `❯ Description Part ${i}`
-				let value = splitArray[i]
+				if(i > 4) break;
+				let name = `❯ Description Part ${i}`;
+				let value = splitArray[i];
 				msgEmbed.embed.fields.push({name, value})
 			}
 			msg.channel.createMessage(msgEmbed)

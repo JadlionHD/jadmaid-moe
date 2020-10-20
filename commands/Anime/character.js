@@ -70,8 +70,9 @@ query {
 				}
 			}
 			for(let i = 0; i < splitArray.length; i++) {
-				let name = `❯ Description Part ${i}`
-				let value = splitArray[i]
+				if(i > 4) break;
+				let name = `❯ Description Part ${i}`;
+				let value = splitArray[i];
 				msgEmbed.embed.fields.push({name, value})
 			}
 			msg.channel.createMessage(msgEmbed)
