@@ -1,22 +1,15 @@
 require("dotenv").config();
 const cron = require("cron");
-const events = {
-	CHANNEL_CREATE: true,
-	CHANNEL_DELETE: true,
-	CHANNEL_UPDATE: true,
-	ROLE_CREATE: true,
-	ROLE_DELETE: true,
-	ROLE_UPDATE: true,
-	EMOJI_CREATE: true,
-	EMOJI_DELETE: true,
-	EMOJI_UPDATE: true,
-}
 const ErisClient = require('./structures/Client.js');
 const client = new ErisClient(require('./config.js'), {
 	maxShards: 'auto',
 	messageLimit: 0,
 	getAllUsers: true,
 	disableEveryone: true,
+	disableEvents: {
+		TYPING_START: true,
+		VOICE_STATE_UPDATE: true
+	}
 });
 const request = require("request");
 const DBL = require("dblapi.js");
