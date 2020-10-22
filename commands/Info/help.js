@@ -53,7 +53,7 @@ ${client.commands.get(args[0]).help.example}
                         name: `<:Question:538303543363502082> Info commands:`,
                         value: `
 \`\`\`yaml
-avatar, corona, help, invite, math, topic
+avatar, corona, help, invite, math, topic, osu
 \`\`\`
 `,
                         inline: true

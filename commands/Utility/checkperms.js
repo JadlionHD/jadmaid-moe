@@ -6,12 +6,16 @@ exports.run = function(client, msg, args) {
     let msgEmbed = {
     	embed: {
     		color: client.config.colors.success,
-    		description: ``
+    		description: ``,
+            author: {
+                name: `${user.username} Permission`,
+                icon_url: user.dynamicAvatarURL("", 4096)
+            }
     	}
     }
 
 	Object.entries(msg.channel.permissionsOf(user.id).json).forEach(([key, val]) => {
-		msgEmbed.embed.description += `**${key}:** \`${val}\`\n`
+		msgEmbed.embed.description += `**${key}**, `
 	})
     msg.channel.createMessage(msgEmbed)
 }
@@ -23,5 +27,5 @@ exports.help = {
     description: "Check a permission of the users!",
     usage: `j!checkperms [userid/mention]`,
     example: `j!checkperms @JadlionHD`,
-    aliases: []
+    aliases: ["perms"]
 }

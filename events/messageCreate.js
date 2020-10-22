@@ -13,14 +13,15 @@ module.exports = async (client, msg) => {
     if(msg.channel.type == 1 || msg.author.bot || msg.member && msg.member.isBlocked) return;
     if (!msg.content.startsWith(client.config.PREFIX)) return;
 
-    let [command, ...args] = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
+    let args = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
+    let command = args.shift().toLowerCase();
 
     if (client.aliases.has(command)) {
         command = client.aliases.get(command);
     }
 
     if (!client.commands.has(command)) {
-        return msg.channel.createMessage("Unknown Command. Enter `j!help` for a list of valid commands.")
+        return msg.channel.createMessage("Unknown Command. Enter `j!help` for a list of valid commands.");
     }
 
     // Client Permissions

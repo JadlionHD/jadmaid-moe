@@ -1,3 +1,5 @@
+const { VERSION } = require("eris");
+
 exports.run = function (client, msg, args) {
 	let user = msg.author;
 	let wsPING = new Date().getTime() - msg.timestamp;
@@ -11,7 +13,7 @@ exports.run = function (client, msg, args) {
 📡 Shards Ping: \`${ShardPING}ms\`
 `,
             footer: {
-                text: `Powered by Eris`
+                text: `Powered by Eris v${VERSION}`
             }
         }
     }

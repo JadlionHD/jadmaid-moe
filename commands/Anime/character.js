@@ -71,7 +71,9 @@ query {
 			}
 			for(let i = 0; i < splitArray.length; i++) {
 				if(i > 4) break;
-				let name = `❯ Description Part ${i}`;
+				let j = 1;
+				j += i;
+				let name = `❯ Description Part ${j}`;
 				let value = splitArray[i];
 				msgEmbed.embed.fields.push({name, value})
 			}

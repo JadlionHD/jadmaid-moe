@@ -42,5 +42,5 @@ exports.help = {
     description: "Show a users information",
     usage: `j!userinfo [userid/mention]`,
     example: `j!userinfo @JadlionHD`,
-    aliases: []
+    aliases: ["whois"]
 }
