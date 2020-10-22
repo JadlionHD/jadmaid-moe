@@ -5,7 +5,11 @@ const client = new ErisClient(require('./config.js'), {
 	maxShards: 'auto',
 	messageLimit: 0,
 	getAllUsers: true,
-	disableEveryone: true,
+	allowedMentions: {
+		everyone: false,
+		roles: true,
+		users: true
+	},
 	disableEvents: {
 		TYPING_START: true,
 		VOICE_STATE_UPDATE: true

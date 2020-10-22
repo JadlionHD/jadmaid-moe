@@ -5,7 +5,7 @@ module.exports = {
      "colors": {
         "error": 0xFF0000,
         "green": 0x00FF46,
-        "success": 0xFFFF00,
+        "success": 0xC0C0C0,
         "warning": 0xFFD100
       }
 };

@@ -95,8 +95,8 @@ query {
 						url: body.data.Media.bannerImage
 					},
 			        footer: {
-			        	text: `Replying to ${userReply.username}#${userReply.discriminator}`,
-			        	icon_url: `${userReply.avatarURL}`
+			        	text: `Powered by AniList`,
+			        	icon_url: `https://anilist.co/img/icons/android-chrome-512x512.png`
 			        },
 				}
 			}

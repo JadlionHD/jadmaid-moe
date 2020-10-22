@@ -1,21 +1,22 @@
 exports.run = function (client, msg, args) {
 	let user = msg.author;
-	let wsPING = msg.timestamp - new Date().getTime();
+	let wsPING = new Date().getTime() - msg.timestamp;
     let ShardPING = client.shards.get(0).latency;
 
-    msg.channel.createMessage({embed: {
-        color: client.config.colors.success,
-        description: `
-\`\`\`yaml
-• Bot Ping: ${ShardPING}ms
-\`\`\`
+    let msgEmbed = {
+        embed: {
+            color: client.config.colors.success,
+            description: `
+🏓 Bot Ping: \`${wsPING}ms\`
+📡 Shards Ping: \`${ShardPING}ms\`
 `,
-        footer: {
-        	text: `Replying to ${user.username}#${user.discriminator}`,
-        	icon_url: `${user.avatarURL}`
+            footer: {
+                text: `Powered by Eris`
+            }
         }
-    }});
-};
+    }
+    msg.channel.createMessage(msgEmbed)
+}
 
 exports.help = {
     cooldown: 5,

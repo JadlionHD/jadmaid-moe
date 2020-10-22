@@ -52,7 +52,7 @@ query {
 			msg.channel.createMessage("<:cross:762537848691752960> No result found!")
 		}
 		if(res.statusCode === 200) {
-			let splitArray = splitter(body.data.Character.description.replace(/<br>|_/g, ""), 1024);
+			let splitArray = splitter(body.data.Character.description, 1024);
 			let msgEmbed = {
 				embed: {
 					title: `${body.data.Character.name.full}`,
@@ -64,8 +64,8 @@ query {
 						url: body.data.Character.image.large
 					},
 			        footer: {
-			        	text: `Replying to ${userReply.username}#${userReply.discriminator}`,
-			        	icon_url: `${userReply.avatarURL}`
+			        	text: `Powered by AniList`,
+			        	icon_url: `https://anilist.co/img/icons/android-chrome-512x512.png`
 			        },
 				}
 			}
