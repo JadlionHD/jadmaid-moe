@@ -8,17 +8,16 @@ exports.run = function (client, msg, args) {
                 color: client.config.colors.success,
                 title: `Command: ${client.config.PREFIX}${args[0]}`,
                 description: `
-\`\`\`
-<> = Optional!
-[] = Required!
-() = Comments!
-\`\`\`
-**Description:** ${client.commands.get(args[0]).help.description}
-**Cooldown:** ${client.commands.get(args[0]).help.cooldown} seconds
-**Aliases:** ${client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
-**Usage:** ${client.commands.get(args[0]).help.usage}
+**Description:** \`${client.commands.get(args[0]).help.description}\`
+**Cooldown:** \`${client.commands.get(args[0]).help.cooldown} seconds\`
+**User Permissions:** \`${client.commands.get(args[0]).help.userPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.userPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
+**Client Permissions:** \`${client.commands.get(args[0]).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
+**Aliases:** \`${client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
+**Usage:** \`${client.commands.get(args[0]).help.usage}\`
 **Example:**
+\`\`\`
 ${client.commands.get(args[0]).help.example}
+\`\`\`
 `
             }
         }
@@ -104,10 +103,19 @@ suggest, support
     }
 };
 
+/*
+\`\`\`
+<> = Optional!
+[] = Required!
+() = Comments!
+\`\`\`
+*/
+
 exports.help = {
     cooldown: 3,
     ratelimit: 1,
     userPerms: [],
+    clientPerms: [],
     description: "Showing all list of the commands!",
     usage: `j!help <commands>`,
     example: `j!help\nj!help stats (to showing detail of the command)`,

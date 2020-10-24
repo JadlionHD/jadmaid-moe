@@ -56,6 +56,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Get emojis picture",
     usage: `j!showemoji (no argument)`,
     example: `j!showemoji`,

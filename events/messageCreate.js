@@ -12,6 +12,7 @@ module.exports = async (client, msg) => {
     // setup
     if(msg.channel.type == 1 || msg.author.bot || msg.member && msg.member.isBlocked) return;
     if (!msg.content.startsWith(client.config.PREFIX)) return;
+    if(!msg.channel.permissionsOf(client.user.id).has("sendMessages")) return;
 
     let args = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
     let command = args.shift().toLowerCase();
@@ -25,9 +26,9 @@ module.exports = async (client, msg) => {
     }
 
     // Client Permissions
-    // if(client.commands.get(command).help.clientPerms.length === 1 && client.commands.get(command).help.clientPerms.some(p => msg.channel.permissionsOf(client.user.id).has(p) === false)) {
-    //     return msg.channel.createMessage(`${msg.author.mention}, I'm missing permission of: \`${client.commands.get(command).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}\` to use this command`)
-    // }
+    if(client.commands.get(command).help.clientPerms.length === 1 && client.commands.get(command).help.clientPerms.some(p => msg.channel.permissionsOf(client.user.id).has(p) === false)) {
+        return msg.channel.createMessage(`${msg.author.mention}, I'm missing permission of: \`${client.commands.get(command).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}\` to use this command`)
+    }
 
     // User Permissions
     if(client.commands.get(command).help.userPerms.length === 1 && client.commands.get(command).help.userPerms.some(p => msg.channel.permissionsOf(msg.author.id).has(p) === false)) {

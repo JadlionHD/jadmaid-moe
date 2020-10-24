@@ -29,10 +29,11 @@ exports.run = function (client, msg, args) {
 		body: {
 			query: `
 query {
-  Media (search: "${req}") {
+  Media (search: "${req}", type: ANIME) {
+    id
     episodes
     type
-    description
+    description(asHtml: false)
     averageScore
     duration
     source
@@ -67,7 +68,7 @@ query {
 		}
 		
 		if(res.statusCode === 200) {
-			let splitArray = splitter(body.data.Media.description, 1024);
+			let splitArray = splitter(body.data.Media.description ? body.data.Media.description: "undefined", 1024);
 			let msgEmbed = {
 				embed: {
 					title: `${body.data.Media.title.romaji}`,
@@ -86,7 +87,6 @@ query {
 ❯ Genres: ${body.data.Media.genres.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
 ❯ Start Date: ${body.data.Media.startDate.month}/${body.data.Media.startDate.day}/${body.data.Media.startDate.year} (month/day/year)
 \`\`\`
-
 `,
 					thumbnail: {
 						url: body.data.Media.coverImage.large
@@ -115,10 +115,27 @@ query {
 	})
 }
 
+/*
+query {
+	Page(page: 0) {
+    media(search: "SAO", type: ANIME) {
+      title {
+        romaji
+        english
+        native
+        userPreferred
+      }
+      description
+    }
+  }
+}
+*/
+
 exports.help = {
 	cooldown: 10,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Search some info about animes",
     usage: `j!anime [anime]`,
     example: `j!anime konosuba`,

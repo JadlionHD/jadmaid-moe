@@ -6,7 +6,8 @@ exports.run = function(client, msg, args) {
 exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
-	userPerms: [],
+	userPerms: ["banMembers"],
+	clientPerms: [],
     description: "Testing puporses",
     usage: `j!test (no argument)`,
     example: `j!test`,

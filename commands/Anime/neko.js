@@ -48,6 +48,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Random Nekos Images",
     usage: `j!neko [sfw/nsfw]`,
     example: `j!neko sfw`,

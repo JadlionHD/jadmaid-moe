@@ -35,6 +35,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Get growtopia world renders",
     usage: `j!gtrender [world name]`,
     example: `j!gtrender startbahasa`,

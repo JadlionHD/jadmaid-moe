@@ -74,6 +74,7 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    clientPerms: [],
     description: "Fetch some osu!user details",
     usage: `j!osu [user_name] [modes standard (s), taiko (t), catch (c), or mania (m)]`,
     example: `j!osu JadlionHD m`,

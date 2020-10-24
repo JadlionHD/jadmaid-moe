@@ -50,6 +50,7 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    clientPerms: [],
     description: "Showing bot information",
     usage: `j!stats (no argument)`,
     example: `j!stats`,

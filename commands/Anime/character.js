@@ -52,7 +52,7 @@ query {
 			msg.channel.createMessage("<:cross:762537848691752960> No result found!")
 		}
 		if(res.statusCode === 200) {
-			let splitArray = splitter(body.data.Character.description, 1024);
+			let splitArray = splitter(body.data.Character.description ? body.data.Character.description: "undefined", 1024);
 			let msgEmbed = {
 				embed: {
 					title: `${body.data.Character.name.full}`,
@@ -87,6 +87,7 @@ exports.help = {
 	cooldown: 10,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Search some anime/manga characters",
     usage: `j!character <character name>`,
     example: `j!character kirigaya kazuto`,

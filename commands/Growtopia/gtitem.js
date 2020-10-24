@@ -94,6 +94,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Search some growtopia items",
     usage: `j!gtitem [growtopia item name]`,
     example: `j!gtitem`,

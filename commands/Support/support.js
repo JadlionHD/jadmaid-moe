@@ -15,6 +15,7 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Support help!",
     usage: `j!support (no argument)`,
     example: `j!support`,

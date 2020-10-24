@@ -39,6 +39,7 @@ exports.help = {
     cooldown: 5,
     ratelimit: 1,
     userPerms: [],
+    clientPerms: [],
     description: "Show a users information",
     usage: `j!userinfo [userid/mention]`,
     example: `j!userinfo @JadlionHD`,

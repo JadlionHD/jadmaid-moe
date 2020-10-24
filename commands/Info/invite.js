@@ -18,6 +18,7 @@ exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Showing invite link of jadmaid bot",
     usage: `j!invite (no argument)`,
     example: `j!invite`,

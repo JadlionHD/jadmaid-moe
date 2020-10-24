@@ -31,6 +31,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Random gif of hug",
     usage: `j!hug (no argument)`,
     example: `j!hug`,

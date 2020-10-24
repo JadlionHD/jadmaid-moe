@@ -31,6 +31,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Random gif of slap",
     usage: `j!slap (no argument)`,
     example: `j!slap`,

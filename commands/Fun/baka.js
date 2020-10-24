@@ -31,6 +31,7 @@ exports.help = {
 	cooldown: 5,
 	ratelimit: 1,
 	userPerms: [],
+	clientPerms: [],
     description: "Random gif of baka",
     usage: `j!baka (no argument)`,
     example: `j!baka`,
