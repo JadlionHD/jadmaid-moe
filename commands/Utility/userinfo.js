@@ -1,9 +1,17 @@
+const userFlags = require("eris").Constants.UserFlags;
+
 exports.run = function (client, msg, args) {
     
-		let user = msg.mentions[0] || client.users.get(args[0]) ||msg.author;
-		let member = msg.channel.guild.members.get(user.id);
-        let userReply = msg.author;
-        
+	let user = msg.mentions[0] || client.users.get(args[0]) ||msg.author;
+	let member = msg.channel.guild.members.get(user.id);
+    let userReply = msg.author;
+
+    let emptyArray = [];
+
+    Object.entries(userFlags).forEach(([key, val]) => {
+        if(user.publicFlags & val) emptyArray.push(key) 
+    })
+
     msg.channel.createMessage({embed: {
         color: client.config.colors.success,
         description: `
@@ -15,6 +23,7 @@ exports.run = function (client, msg, args) {
 • Roles: ${member.roles.length}
 • Joined Guild At: ${client.util.timeStamp(member.joinedAt)}
 • Created Discord At: ${client.util.timeStamp(user.createdAt)}
+• Badges: ${emptyArray.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
 \`\`\`
 **Rich Presence:**
 \`\`\`yaml
