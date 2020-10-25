@@ -61,7 +61,7 @@ query {
 `
 		}
 	}, function(err, res, body) {
-		if(!body.data.Media.description) return msg.channel.createMessage("<:cross:762537848691752960> No result found!");
+		//if(!body.data.Media.description) return msg.channel.createMessage("<:cross:762537848691752960> No result found!");
 
 		if(res.statusCode === 404 || res.statusCode === 400) {
 			msg.channel.createMessage("<:cross:762537848691752960> No result found!")

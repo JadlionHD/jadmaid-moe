@@ -3,21 +3,24 @@ const { VERSION } = require("eris");
 exports.run = async function (client, msg, args) {
 	let user = msg.author;
 	let wsPING = new Date().getTime() - msg.timestamp;
-
-    let msgEmbed = {
-        embed: {
-            color: client.config.colors.success,
-            description: `
-🏓 **Discord API Ping:** \`${wsPING}ms\`
+    msg.channel.createMessage("Pinging..").then(message => {
+        let msgEmbed = {
+            embed: {
+                color: client.config.colors.success,
+                description: `
+🏓 **Discord API Ping:** \`${message.timestamp - msg.timestamp}ms\`
 🌐 **WebSocket Ping:** \`${msg.channel.guild.shard.latency}ms\`
 `,
-            footer: {
-                text: `Powered by Eris v${VERSION}`
+                footer: {
+                    text: `Powered by Eris v${VERSION}`
+                }
             }
         }
-    }
-    msg.channel.createMessage(msgEmbed);
+        setTimeout(() => { message.edit(msgEmbed) }, 1000)
+    });
 }
+
+
 
 /*
 msg.channel.createMessage(msgEmbed).then((message) => {
