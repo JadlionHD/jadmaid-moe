@@ -146,6 +146,21 @@ module.exports = class Util {
       return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
     }
 
+    static splitter(str, l) {
+      var strs = [];
+      while(str.length > l){
+          var pos = str.substring(0, l).lastIndexOf(' ');
+          pos = pos <= 0 ? l : pos;
+          strs.push(str.substring(0, pos));
+          var i = str.indexOf(' ', pos)+1;
+          if(i < pos || i > pos+l)
+              i = pos;
+          str = str.substring(i);
+      }
+      strs.push(str);
+      return strs;
+    }
+
     static isAlphaNumeric(str) {
     var code, i, len;
 

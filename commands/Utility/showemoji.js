@@ -18,7 +18,7 @@ exports.run = async function (client, msg, args) {
 
 
 	if(emojis.length === 0) msg.channel.createMessage("There is no emojis! I can see only 10 previous messages");
-	else msg.channel.createMessage(createEmbed(emojis[0].name, emojis[0].id, emojis[0].url))
+	else msg.channel.createMessage(createEmbed(emojis[0].name, emojis[0].id, emojis[0].url));
 
 
 	function createEmbed(name, id, url) {
@@ -60,5 +60,5 @@ exports.help = {
     description: "Get emojis picture",
     usage: `j!showemoji (no argument)`,
     example: `j!showemoji`,
-	aliases: []
+	aliases: ["emoji"]
 }

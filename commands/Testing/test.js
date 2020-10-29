@@ -1,14 +1,22 @@
-exports.run = function(client, msg, args) {
+const anilist = require("../../structures/anilistAPI.js");
 
-	msg.channel.createMessage("Work");
+exports.run = async function(client, msg, args) {
+	anilist.searchAnime("konosuba").then((p) => {
+		// returning success json body
+		console.log(p)
+	}).catch((e) => {
+		// returning error json body
+		console.log(e)
+	})
+	//msg.channel.createMessage("Lol")
 }
 
 exports.help = {
 	cooldown: 3,
 	ratelimit: 1,
-	userPerms: ["banMembers"],
+	userPerms: [],
 	clientPerms: [],
-    description: "Testing puporses",
+    description: "Testing purposes",
     usage: `j!test (no argument)`,
     example: `j!test`,
 	aliases: []

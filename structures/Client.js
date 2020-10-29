@@ -1,3 +1,4 @@
+const Eris = require("eris");
 const { Client, Collection } = require('eris');
 const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
