@@ -12,7 +12,7 @@ exports.run = function (client, msg, args) {
 **Cooldown:** \`${client.commands.get(args[0]).help.cooldown} seconds\`
 **User Permissions:** \`${client.commands.get(args[0]).help.userPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.userPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
 **Client Permissions:** \`${client.commands.get(args[0]).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.clientPerms.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
-**Aliases:** \`${client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
+**Alias:** \`${client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') ? client.commands.get(args[0]).help.aliases.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ') : "None"}\`
 **Usage:** \`${client.commands.get(args[0]).help.usage}\`
 **Example:**
 \`\`\`
@@ -61,7 +61,7 @@ avatar, corona, help, invite, math, topic, osu
                         name: `🔨 Utility`,
                         value: `
 \`\`\`yaml
-serverinfo, ping, stats, userinfo, showemoji, checkperms
+serverinfo, ping, stats, userinfo, showemoji, checkperms, shard
 \`\`\`
 `,
                         inline: true
