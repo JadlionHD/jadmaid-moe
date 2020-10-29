@@ -11,10 +11,10 @@ exports.run = function (client, msg, args) {
     Object.entries(userFlags).forEach(([key, val]) => {
         if(user.publicFlags & val) emptyArray.push(key) 
     })
-
-    msg.channel.createMessage({embed: {
-        color: client.config.colors.success,
-        description: `
+    let msgEmbed = {
+        embed: {
+            color: client.config.colors.success,
+            description: `
 **User Info:**
 \`\`\`yaml
 • Full Name: ${user.username}#${user.discriminator}
@@ -34,15 +34,32 @@ exports.run = function (client, msg, args) {
 \`\`\`
 `,
         footer: {
-        	text: `Replying to ${userReply.username}#${userReply.discriminator}`,
-        	icon_url: `${userReply.avatarURL}`
+            text: `Replying to ${userReply.username}#${userReply.discriminator}`,
+            icon_url: `${userReply.avatarURL}`
         },
         thumbnail: {
             url: user.dynamicAvatarURL("", 1024)
-        }
-    }});
+        },
+        fields: []
+    }}
+    let roleArray = [];
+    member.roles.map(r => {
+        let roleID = `<@&${r}> `
+        roleArray.push(roleID)
+    })
+    let splitArray = client.util.splitter(roleArray.join(" "));
+    for(let i = 0; i < splitArray.length; i++) {
+        if(i > 2) break;
+        let j = 1;
+        j += i;
+        let name = `❯ Roles ${j}`;
+        let value = splitArray[i];
+        msgEmbed.embed.fields.push({name, value});
+    }
+    msg.channel.createMessage(msgEmbed);
 };
 
+ // <@&> member.roles
 
 exports.help = {
     cooldown: 5,
