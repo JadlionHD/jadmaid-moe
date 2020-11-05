@@ -36,15 +36,15 @@ exports.run = function (client, msg, args) {
 				thumbnail: {
 					url: body.data.Media.coverImage.large
 				},
-				image: {
-					url: body.data.Media.bannerImage
-		}
-				},
 		        footer: {
 		        	text: `Powered by AniList`,
 		        	icon_url: `https://anilist.co/img/icons/android-chrome-512x512.png`
 		        },
+				image: {
+					url: body.data.Media.bannerImage
+				}
 			}
+		}
 		for(let i = 0; i < splitArray.length; i++) {
 			if(i > 4) break;
 			let j = 1;

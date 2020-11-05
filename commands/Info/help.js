@@ -18,7 +18,10 @@ exports.run = function (client, msg, args) {
 \`\`\`
 ${client.commands.get(args[0]).help.example}
 \`\`\`
-`
+`,
+                footer: {
+                    text: `Syntax: [required], <optional>, (comments)`
+                },
             }
         }
         msg.channel.createMessage(msgReply)
@@ -43,7 +46,7 @@ ${client.commands.get(args[0]).help.example}
                         name: `<a:flex:606504992634961950> Fun commands:`,
                         value: `
 \`\`\`yaml
-8ball, baka, feed, howgay, hug, kiss, magik, pat, slap
+8ball, baka, feed, howgay, hug, kiss, magik, pat, slap, flip
 \`\`\`
 `,
                         inline: true

@@ -1,6 +1,7 @@
 require("dotenv").config();
 const cron = require("cron");
-const options = {
+const ErisClient = require('./structures/Client.js');
+const client = new ErisClient(require('./config.js'), {
 	maxShards: 'auto',
 	messageLimit: 0,
 	getAllUsers: false,
@@ -15,9 +16,7 @@ const options = {
 		MESSAGE_DELETE: true,
 		MESSAGE_DELETE_BULK: true,
 	}
-}
-const ErisClient = require('./structures/Client.js');
-const client = new ErisClient(require('./config.js'), options);
+});
 const request = require("request");
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, {
