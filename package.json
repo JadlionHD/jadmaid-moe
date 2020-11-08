@@ -9,7 +9,7 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "author": "JadlionHD (jadmaidbot@gmail.com)",
-  "license": "BSD 3-Clause",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
@@ -23,7 +23,6 @@
     "ms": "^2.1.2",
     "path": "^0.12.7",
     "request": "^2.88.2",
-    "scrape-it": "^5.2.4",
-    "sharp": "^0.26.2"
+    "scrape-it": "^5.2.4"
   }
 }

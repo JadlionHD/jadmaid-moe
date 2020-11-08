@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 exports.run = function (client, msg, args) {
 	let commands = Array.from(client.commands.keys()).sort().join(', ');
 	let user = msg.author;
@@ -46,7 +48,7 @@ ${client.commands.get(args[0]).help.example}
                         name: `<a:flex:606504992634961950> Fun commands:`,
                         value: `
 \`\`\`yaml
-8ball, baka, feed, howgay, hug, kiss, magik, pat, slap, flip
+${fs.readdirSync(`${process.cwd()}/commands/fun`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
@@ -55,7 +57,7 @@ ${client.commands.get(args[0]).help.example}
                         name: `<:Question:538303543363502082> Info commands:`,
                         value: `
 \`\`\`yaml
-avatar, corona, help, invite, math, topic, osu
+${fs.readdirSync(`${process.cwd()}/commands/info`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
@@ -64,7 +66,7 @@ avatar, corona, help, invite, math, topic, osu
                         name: `🔨 Utility`,
                         value: `
 \`\`\`yaml
-serverinfo, ping, stats, userinfo, showemoji, checkperms, shard
+${fs.readdirSync(`${process.cwd()}/commands/utility`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
@@ -73,7 +75,7 @@ serverinfo, ping, stats, userinfo, showemoji, checkperms, shard
                         name: `<:growtopia_title:538303118698610702> Growtopia Reference:`,
                         value: `
 \`\`\`yaml
-gtachieve, gtdaily, gtitem, gtrender, gtwotd
+${fs.readdirSync(`${process.cwd()}/commands/growtopia`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
@@ -82,16 +84,16 @@ gtachieve, gtdaily, gtitem, gtrender, gtwotd
                         name: `<:Kewlgurl:709312006167068704> Anime commands:`,
                         value: `
 \`\`\`yaml
-anime, character, neko
+${fs.readdirSync(`${process.cwd()}/commands/anime`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
                     },
                     {
-                        name: `👥 Support:`,
+                        name: `👥 Support/Developer:`,
                         value: `
 \`\`\`yaml
-suggest, support
+${fs.readdirSync(`${process.cwd()}/commands/support`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
 \`\`\`
 `,
                         inline: true
