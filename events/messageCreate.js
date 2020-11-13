@@ -1,17 +1,19 @@
 const ms = require("ms");
+//const db = require("quick.db");
 
 module.exports = async (client, msg) => {
 
-
+    //let customPrefix = db.get(`prefix_${msg.channel.guild.id}`);
+    //if(customPrefix === null) customPrefix = client.config.PREFIX;
     // prefix mention & prefix ping
     let prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
     if (msg.content.match(prefixMention)) {
-        msg.channel.createMessage(`Hey customers! You can call me by doing \`j!help\``)
+        msg.channel.createMessage(`Hey customers! You can call me by doing \`${client.config.PREFIX}help\``)
     }
 
     // setup
     if(msg.channel.type == 1 || msg.author.bot || msg.member && msg.member.isBlocked) return;
-    if (!msg.content.startsWith(client.config.PREFIX)) return;
+    if(!msg.content.startsWith(client.config.PREFIX)) return;
     if(!msg.channel.permissionsOf(client.user.id).has("sendMessages")) return;
 
     let args = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
@@ -43,7 +45,6 @@ module.exports = async (client, msg) => {
             if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} You are too quick using ${command} command! Please wait ${ms(client.commands.get(command).help.cooldown * 1000)}`).then((message) => {
                 setTimeout(() => {
                     message.delete();
-
                 }, 7 * 1000)
             })
             client.cooldown.set(`${command}-${msg.author.id}`, current + 1);
@@ -51,6 +52,7 @@ module.exports = async (client, msg) => {
 
         setTimeout(() => {
             client.cooldown.delete(`${command}-${msg.author.id}`);
+            client.cooldown.delete(`lastCD-${msg.author.id}`);
         }, client.commands.get(command).help.cooldown * 1000)
 
         try {

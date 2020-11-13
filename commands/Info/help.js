@@ -1,8 +1,11 @@
 const fs = require("fs");
+//const db = require("quick.db");
 
 exports.run = function (client, msg, args) {
 	let commands = Array.from(client.commands.keys()).sort().join(', ');
 	let user = msg.author;
+    //let customPrefix = db.get(`prefix_${msg.channel.guild.id}`);
+    //if(customPrefix === null) customPrefix = client.config.PREFIX;
 
     if(args[0] && client.commands.has(args[0])) {
         let msgReply = {
@@ -47,56 +50,38 @@ ${client.commands.get(args[0]).help.example}
                     {
                         name: `<a:flex:606504992634961950> Fun commands:`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/fun`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/fun`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
                     },
                     {
                         name: `<:Question:538303543363502082> Info commands:`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/info`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/info`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
                     },
                     {
                         name: `🔨 Utility`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/utility`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/utility`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
                     },
                     {
                         name: `<:growtopia_title:538303118698610702> Growtopia Reference:`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/growtopia`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/growtopia`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
                     },
                     {
                         name: `<:Kewlgurl:709312006167068704> Anime commands:`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/anime`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/anime`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
                     },
                     {
                         name: `👥 Support/Developer:`,
                         value: `
-\`\`\`yaml
-${fs.readdirSync(`${process.cwd()}/commands/support`).map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/.js/g, '')}
-\`\`\`
-`,
-                        inline: true
+${fs.readdirSync(`${process.cwd()}/commands/support`).map(str => `\`${str[0] + str.slice(1)}\``).join(" ").replace(/.js/g, '')}
+`
                     }
                 ],
                 footer: {
