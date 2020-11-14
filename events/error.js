@@ -1,3 +1,3 @@
 module.exports = async (client, err, id) => {
-	console.log(`[ERROR] Some error appear from ${id}, the error is ${err}`);
+	console.log(`[ERROR] thorwn error id ${id} with error ${err}`);
 }
