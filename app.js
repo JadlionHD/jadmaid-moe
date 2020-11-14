@@ -1,3 +1,10 @@
+/*
+Copyright JadlionHD 2020
+JadmMaid Bot
+Made with Javascript & NodeJS
+And Library Eris
+*/
+
 require("dotenv").config();
 const cron = require("cron");
 const ErisClient = require('./structures/Client.js');
