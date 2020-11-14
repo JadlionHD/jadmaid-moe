@@ -8,8 +8,16 @@
     "lint": "eslint --ignore-path .gitignore \"**/*.js\"",
     "lint:fix": "npm run lint -- --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JadlionHD/jadmaid-moe.git"
+  },
   "author": "JadlionHD (jadmaidbot@gmail.com)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JadlionHD/jadmaid-moe/issues"
+  },
+  "homepage": "https://github.com/JadlionHD/jadmaid-moe#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
