@@ -1,8 +1,8 @@
 /*
-Copyright JadlionHD 2020
-JadmMaid Bot
-Made with Javascript & NodeJS
-And Library Eris
+* Copyright JadlionHD 2020
+* JadmMaid Bot
+* Made with Javascript & NodeJS
+* And Library Eris
 */
 
 require("dotenv").config();
