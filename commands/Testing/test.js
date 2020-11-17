@@ -1,14 +1,21 @@
-const anilist = require("../../structures/anilistAPI.js");
+const Eris = require("eris");
 
 exports.run = async function(client, msg, args) {
-	anilist.searchAnime("konosuba").then((p) => {
-		// returning success json body
-		console.log(p)
-	}).catch((e) => {
-		// returning error json body
-		console.log(e)
+	//let message = await msg.channel.createMessage("Hello");
+	//await message.addReaction("🛠️")
+	//const reaction = await msg.awaitReactions({timeout: 10 * 1000, count: 1});
+
+	const filter = (reaction, user) => {
+		return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+	};
+	msg.channel.createMessage("hello world").then((m) => {
+		m.addReaction("👍")
+		m.addReaction("👎")
 	})
-	//msg.channel.createMessage("Lol")
+	msg.awaitReactions({timeout: 10 * 1000, count: 10, filter: filter}).then(m => {
+		console.log(m)
+	})
+
 }
 
 exports.help = {

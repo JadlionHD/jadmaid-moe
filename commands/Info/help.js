@@ -6,6 +6,8 @@ exports.run = function (client, msg, args) {
 	let user = msg.author;
     //let customPrefix = db.get(`prefix_${msg.channel.guild.id}`);
     //if(customPrefix === null) customPrefix = client.config.PREFIX;
+    let findOwner = client.config.ownerID[0];
+    let getOwner = client.users.get(findOwner);
 
     if(args[0] && client.commands.has(args[0])) {
         let msgReply = {
@@ -85,8 +87,8 @@ ${fs.readdirSync(`${process.cwd()}/commands/support`).map(str => `\`${str[0] + s
                     }
                 ],
                 footer: {
-                    text: `Replying to ${user.username}#${user.discriminator}`,
-                    icon_url: `${user.avatarURL}`
+                    text: `Developer: ${getOwner.username}#${getOwner.discriminator}`,
+                    icon_url: `${getOwner.avatarURL}`
                 }
             }
         });

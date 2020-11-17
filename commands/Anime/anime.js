@@ -15,12 +15,13 @@ exports.run = function (client, msg, args) {
 			let splitResult = client.util.splitter(body.data.Media.description ? body.data.Media.description: "undefined", 1024);
 			splitArray = splitResult;
 		}
-		let msgEmbed = {
-			embed: {
-				title: `${body.data.Media.title.romaji}`,
-				color: client.config.colors.success,
-				fields: [],
-				description: `
+		if(body.data.Media.isAdult === false || msg.channel.nsfw === true) {
+			let msgEmbed = {
+				embed: {
+					title: `${body.data.Media.title.romaji}`,
+					color: client.config.colors.success,
+					fields: [],
+					description: `
 \`\`\`yaml
 ❯ Episodes: ${body.data.Media.episodes} (${body.data.Media.duration} minutes per episode)
 ❯ Type: ${body.data.Media.type}
@@ -30,30 +31,35 @@ exports.run = function (client, msg, args) {
 ❯ Popularity: ${body.data.Media.popularity}
 ❯ Favourites: ${body.data.Media.favourites}
 ❯ Genres: ${body.data.Media.genres.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
+❯ NSFW: ${body.data.Media.isAdult}
 ❯ Start Date: ${body.data.Media.startDate.month}/${body.data.Media.startDate.day}/${body.data.Media.startDate.year} (month/day/year)
 \`\`\`
 `,
-				thumbnail: {
-					url: body.data.Media.coverImage.large
-				},
-		        footer: {
-		        	text: `Powered by AniList`,
-		        	icon_url: `https://anilist.co/img/icons/android-chrome-512x512.png`
-		        },
-				image: {
-					url: body.data.Media.bannerImage
+					thumbnail: {
+						url: body.data.Media.coverImage.large
+					},
+			        footer: {
+			        	text: `Powered by AniList`,
+			        	icon_url: `https://anilist.co/img/icons/android-chrome-512x512.png`
+			        },
+					image: {
+						url: body.data.Media.bannerImage
+					}
 				}
 			}
+			for(let i = 0; i < splitArray.length; i++) {
+				if(i > 4) break;
+				let j = 1;
+				j += i;
+				let name = `❯ Description Part ${j}`;
+				let value = splitArray[i];
+				msgEmbed.embed.fields.push({name, value})
+			}
+			msg.channel.createMessage(msgEmbed)
+		} else {
+			msg.channel.createMessage("That anime is a nsfw, please use that on nsfw channel.");
 		}
-		for(let i = 0; i < splitArray.length; i++) {
-			if(i > 4) break;
-			let j = 1;
-			j += i;
-			let name = `❯ Description Part ${j}`;
-			let value = splitArray[i];
-			msgEmbed.embed.fields.push({name, value})
-		}
-		msg.channel.createMessage(msgEmbed)
+
 	}).catch(e => {
 		msg.channel.createMessage("<:cross:762537848691752960> No Result Found")
 	})

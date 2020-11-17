@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const Eris = require("eris");
 /**
  * Utilities module
  */
@@ -160,6 +160,7 @@ module.exports = class Util {
       strs.push(str);
       return strs;
     }
+
 
     static isAlphaNumeric(str) {
     var code, i, len;

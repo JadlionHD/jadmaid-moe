@@ -4,7 +4,7 @@ exports.run = async function (client, msg, args) {
   
     let wsPING = client.shards.get(0).latency;
   
-    let findOwner = client.config.ownerID[0]; //to get your owner name put your ID at index 0 in config
+    let findOwner = client.config.ownerID[0];
   
     let getOwner = client.users.get(findOwner);
 

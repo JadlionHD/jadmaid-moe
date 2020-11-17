@@ -1,4 +1,5 @@
 const Eris = require("eris");
+require("pluris")(Eris, {embed: false, endpoints: false, messageGuild: false, roleList: false, webhooks: false})
 const { Client, Collection } = require('eris');
 const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
@@ -21,6 +22,7 @@ class ErisBot extends Client {
         this._loadCommands();
         this._eventLoader(this);
         this.fetch = require('axios');
+        this.snipe = new Map();
     };
 
 
