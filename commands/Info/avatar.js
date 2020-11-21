@@ -1,7 +1,7 @@
 exports.run = function (client, msg, args) {
-    let user = msg.mentions[0] || client.users.get(args[0]);
+    let user = msg.mentions[0] || client.users.get(args[0]) || msg.author;
+    if(!user) user = msg.channel.fetchMembers({userIDs: user.id});
     let userReply = msg.author;
-    if(!user) user = msg.author;
     let avatarLarge = user.dynamicAvatarURL("", 4096);
 
     msg.channel.createMessage({

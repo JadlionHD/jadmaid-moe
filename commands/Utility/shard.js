@@ -3,23 +3,15 @@ exports.run = function(client, msg, args) {
 	let msgEmbed = {
 		embed: {
 			color: client.config.colors.success,
-			fields: [
-				{
-					name: `[Shard ID]`,
-					value: `${client.shards.map(e => `${e.id}\n`)}`,
-					inline: true
-				},
-				{
-					name: `[Ping]`,
-					value: `${client.shards.map(e => `${e.latency}\n`)}`,
-					inline: true
-				},
-				{
-					name: `[Status]`,
-					value: `${client.shards.map(e => `${e.status}\n`)}`,
-					inline: true
-				}
-			]
+			description: `
+\`\`\`yaml
+[ID]  [Ping]  [Status]
+${client.shards.map(e => `${e.id}`)}      ${client.shards.map(e => `${e.latency}`)}ms      ${client.shards.map(e => `${e.status}\n`)}
+\`\`\`
+`,
+			footer: {
+				text: `This guild on shard id: ${msg.channel.guild.shard.id}`
+			}
 		}
 	}
 	msg.channel.createMessage(msgEmbed)

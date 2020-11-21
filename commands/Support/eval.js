@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
       if (typeof evaled !== "string")
       evaled = require('util').inspect(evaled, { depth: 0});
       let output = client.util.clean(evaled);
-      output = output.replace(new RegExp(client.token, 'gi'), '*');      
+      output = output.replace(new RegExp(client.config.TOKEN, 'gi'), '*')
 
       if (output.length > 1024) {
           const postCode = await client.util.haste(output);

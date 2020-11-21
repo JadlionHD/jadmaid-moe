@@ -7,6 +7,16 @@ exports.run = function (client, msg, args) {
     let verifyLevel = ["NONE", "LOW", "MEDIUM", "HIGH", "VERY HIGH"];
 
     let BannerURL = guild.dynamicBannerURL("png", 4096) || "";
+    let emojiArray = [];
+    guild.emojis.map(e => {
+        if(e.animated === true) {
+            let resultEmoji = `<a:${e.name}:${e.id}> `;
+            emojiArray.push(resultEmoji)
+        } else {
+            let resultEmoji = `<:${e.name}:${e.id}> `;
+            emojiArray.push(resultEmoji)
+        }
+    })
     let msgEmbed = {
     	embed: {
 	        color: client.config.colors.success,
@@ -40,28 +50,24 @@ exports.run = function (client, msg, args) {
         image: {
         	url: BannerURL
         },
-        fields: []
+        fields: [
+            {
+                name: `❯ Emojis [${guild.emojis.length}]`,
+                value: client.util.splitter(emojiArray.join(" "))[0]
+            }
+        ]
     }}
-    let emojiArray = [];
-    guild.emojis.map(e => {
-    	if(e.animated === true) {
-    		let resultEmoji = `<a:${e.name}:${e.id}> `;
-    		emojiArray.push(resultEmoji)
-    	} else {
-    		let resultEmoji = `<:${e.name}:${e.id}> `;
-    		emojiArray.push(resultEmoji)
-    	}
-    })
-    let splitArray = client.util.splitter(emojiArray.join(" "));
-    for(let i = 0; i < splitArray.length; i++) {
-    	if(i > 2) break;
-    	let j = 1;
-    	j += i
-    	let name = `❯ Emojis ${j}`;
-    	let value = splitArray[i];
 
-    	msgEmbed.embed.fields.push({name, value});
-    }
+    //let splitArray = client.util.splitter(emojiArray.join(" "));
+    // for(let i = 0; i < splitArray.length; i++) {
+    // 	if(i > 2) break;
+    // 	let j = 1;
+    // 	j += i
+    // 	let name = `❯ Emojis ${j}`;
+    // 	let value = splitArray[i];
+
+    // 	msgEmbed.embed.fields.push({name, value});
+    // }
     msg.channel.createMessage(msgEmbed);
 };
 
