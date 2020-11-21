@@ -1,5 +1,5 @@
 const ms = require("ms");
-//const db = require("quick.db");
+const timeOut = new Map();
 
 module.exports = async (client, msg) => {
 
@@ -24,7 +24,11 @@ module.exports = async (client, msg) => {
     }
 
     if (!client.commands.has(command)) {
-        return msg.channel.createMessage("Unknown Command. Enter `j!help` for a list of valid commands.");
+        return msg.channel.createMessage("Unknown Command. Enter `j!help` for a list of valid commands.").then((message) => {
+            setTimeout(() => {
+                message.delete()
+            }, 7 * 1000)
+        })
     }
 
     // Client Permissions
@@ -38,11 +42,15 @@ module.exports = async (client, msg) => {
     }
 
     // cooldown
+    let curTime = Date.now()
     if(client.commands.get(command).help) {
         const current = client.cooldown.get(`${command}-${msg.author.id}`);
-        if(!current) client.cooldown.set(`${command}-${msg.author.id}`, 1);
+        const cdTime = client.commands.get(command).help.cooldown * 1000;
+        if(!current) client.cooldown.set(`${command}-${msg.author.id}`, 1) && timeOut.set(`${command}-${msg.author.id}`, curTime);
         else {
-            if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} You are too quick using ${command} command! Please wait ${ms(client.commands.get(command).help.cooldown * 1000)}`).then((message) => {
+            let expirationTime = timeOut.get(`${command}-${msg.author.id}`) + cdTime;
+            let timeLeft = expirationTime - curTime;
+            if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} You are too quick using ${command} command! Please wait **${ms(timeLeft)}**`).then((message) => {
                 setTimeout(() => {
                     message.delete();
                 }, 7 * 1000)
@@ -52,7 +60,7 @@ module.exports = async (client, msg) => {
 
         setTimeout(() => {
             client.cooldown.delete(`${command}-${msg.author.id}`);
-            client.cooldown.delete(`lastCD-${msg.author.id}`);
+            timeOut.delete(`${command}-${msg.author.id}`)
         }, client.commands.get(command).help.cooldown * 1000)
 
         try {

@@ -1,3 +1,3 @@
 module.exports = async (client, err, id) => {
-	console.log(`[ERROR] throw errors id ${id} with error ${err}`);
+	console.log(`[SHARD] Shard ${id} Error:`, err);
 }
