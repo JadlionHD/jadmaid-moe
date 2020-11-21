@@ -1,7 +1,7 @@
 module.exports = {
      "TOKEN" : `${process.env.DISCORD_TOKEN}`,
      "PREFIX" : "j!",
-     "ownerID": ["421307985827201024", "540560193277132800"],
+     "ownerID": ["421307985827201024", "540560193277132800", "494219204610883594"],
      "colors": {
         "error": 0xFF0000,
         "green": 0x00FF46,

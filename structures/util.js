@@ -1,17 +1,7 @@
 const axios = require('axios');
 const Eris = require("eris");
-/**
- * Utilities module
- */
-module.exports = class Util {
-       
-    /**
-     * Do a random number between min and max
-     *
-     * @param {Number} min  the minimum number
-     * @param {Number} max  the maximum number
-     * @returns {Number}    the random number between the min and max number
-     */
+
+module.exports = class Util {    
    static randomNumber(min, max) {
         if (!(max instanceof Number) || !(min instanceof Number)) {
             return null;
@@ -25,13 +15,6 @@ module.exports = class Util {
         return random;
     };
 
-    /**
-     * Creates a random string
-     *
-     * @param {Number} length       the string length
-     * @param {Boolean} useCapital  true if you want to use capital
-     * @param {Boolean} useNumber   true if you want to use number
-     */
    static randomString(length, useCapital, useNumber) {
         if (
             !(length instanceof Number) ||
@@ -62,11 +45,6 @@ module.exports = class Util {
         return strings;
     };
 
-    /**
-     * Creates a UUID
-     *
-     * @returns {String} the uuid
-     */
     static createUUID() {
         return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
             const r = (Math.random() * 16) | 0,
@@ -85,24 +63,24 @@ module.exports = class Util {
   
     static timeParser(ms){
       
-    let seconds = ms / 1000;
-    let days = parseInt(seconds / 86400);
-    seconds = seconds % 86400;
-    let hours = parseInt(seconds / 3600);
-    seconds = seconds % 3600;
-    let minutes = parseInt(seconds / 60);
-    seconds = parseInt(seconds % 60);
-    
-    if (days) {
-      return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-    else if (hours) {
-      return `${hours}h ${minutes}m ${seconds}s`;
-    }
-    else if (minutes) {
-      return `${minutes}m ${seconds}s`;
-    }
-    return `${seconds}s`;
+      let seconds = ms / 1000;
+      let days = parseInt(seconds / 86400);
+      seconds = seconds % 86400;
+      let hours = parseInt(seconds / 3600);
+      seconds = seconds % 3600;
+      let minutes = parseInt(seconds / 60);
+      seconds = parseInt(seconds % 60);
+      
+      if (days) {
+        return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+      else if (hours) {
+        return `${hours}h ${minutes}m ${seconds}s`;
+      }
+      else if (minutes) {
+        return `${minutes}m ${seconds}s`;
+      }
+      return `${seconds}s`;
       
     };
   
