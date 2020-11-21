@@ -87,7 +87,7 @@ ${fs.readdirSync(`${process.cwd()}/commands/support`).map(str => `\`${str[0] + s
                     }
                 ],
                 footer: {
-                    text: `Developer: ${getOwner.username}#${getOwner.discriminator}`,
+                    text: `Developer ${getOwner.username}#${getOwner.discriminator}`,
                     icon_url: `${getOwner.avatarURL}`
                 }
             }

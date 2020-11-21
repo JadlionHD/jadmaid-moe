@@ -1,4 +1,5 @@
 const { VERSION } = require("eris");
+const { version } = require("../../package.json");
 
 exports.run = async function (client, msg, args) {
 	let user = msg.author;
@@ -12,7 +13,7 @@ exports.run = async function (client, msg, args) {
 🌐 **WebSocket Ping:** \`${msg.channel.guild.shard.latency}ms\`
 `,
                 footer: {
-                    text: `Powered by Eris v${VERSION}`
+                    text: `Powered by Eris v${VERSION} | Bot version v${version}`
                 }
             }
         }
