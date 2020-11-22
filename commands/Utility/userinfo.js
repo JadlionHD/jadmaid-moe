@@ -5,6 +5,7 @@ exports.run = function (client, msg, args) {
 	let user = msg.mentions[0] || client.users.get(args[0]) ||msg.author;
 	let member = msg.channel.guild.members.get(user.id);
     let userReply = msg.author;
+    if(!user) user = msg.channel.fetchMembers({userIDs: user.id});
 
     let emptyArray = [];
 
@@ -24,13 +25,6 @@ exports.run = function (client, msg, args) {
 • Joined Guild At: ${client.util.timeStamp(member.joinedAt)}
 • Created Discord At: ${client.util.timeStamp(user.createdAt)}
 • Badges: ${emptyArray.map(str => `${str[0] + str.slice(1)}`).join(", ").replace(/_/g, ' ')}
-\`\`\`
-**Rich Presence:**
-\`\`\`yaml
-• Status: ${member ? member.status : "None"}
-• Rich Presence: ${member.game ? member.game.name : "None"}
-• State Presence: ${member.game ? member.game.state : "None"}
-• Details Presence: ${member.game ? member.game.details : "None"}
 \`\`\`
 `,
         footer: {
@@ -52,7 +46,7 @@ exports.run = function (client, msg, args) {
         if(i > 2) break;
         let j = 1;
         j += i;
-        let name = `❯ Roles ${j}`;
+        let name = `Roles ${j}`;
         let value = splitArray[i];
         msgEmbed.embed.fields.push({name, value});
     }

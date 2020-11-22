@@ -7,16 +7,6 @@ exports.run = function (client, msg, args) {
     let verifyLevel = ["NONE", "LOW", "MEDIUM", "HIGH", "VERY HIGH"];
 
     let BannerURL = guild.dynamicBannerURL("png", 4096) || "";
-    let emojiArray = [];
-    guild.emojis.map(e => {
-        if(e.animated === true) {
-            let resultEmoji = `<a:${e.name}:${e.id}> `;
-            emojiArray.push(resultEmoji)
-        } else {
-            let resultEmoji = `<:${e.name}:${e.id}> `;
-            emojiArray.push(resultEmoji)
-        }
-    })
     let msgEmbed = {
     	embed: {
 	        color: client.config.colors.success,
@@ -49,13 +39,7 @@ exports.run = function (client, msg, args) {
         },
         image: {
         	url: BannerURL
-        },
-        fields: [
-            {
-                name: `❯ Emojis [${guild.emojis.length}]`,
-                value: client.util.splitter(emojiArray.join(" "))[0]
-            }
-        ]
+        }
     }}
 
     //let splitArray = client.util.splitter(emojiArray.join(" "));
