@@ -28,10 +28,10 @@
     "fs": "^0.0.2",
     "mathjs": "^7.2.0",
     "moment-timezone": "^0.5.31",
-    "mongoose": "^5.10.14",
     "ms": "^2.1.2",
     "path": "^0.12.7",
     "pluris": "^0.3.3",
+    "quickmongo": "^2.0.6",
     "request": "^2.88.2",
     "scrape-it": "^5.2.4"
   }
