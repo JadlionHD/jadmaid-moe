@@ -3,20 +3,20 @@ const timeOut = new Map();
 
 module.exports = async (client, msg) => {
 
-    //let customPrefix = db.get(`prefix_${msg.channel.guild.id}`);
-    //if(customPrefix === null) customPrefix = client.config.PREFIX;
-    // prefix mention & prefix ping
-    let prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-    if (msg.content.match(prefixMention)) {
-        msg.channel.createMessage(`Hey customers! You can call me by doing \`${client.config.PREFIX}help\``)
-    }
-
     // setup
     if(msg.channel.type == 1 || msg.author.bot || msg.member && msg.member.isBlocked) return;
-    if(!msg.content.startsWith(client.config.PREFIX)) return;
+    //prefixes
+    //const customPrefix = client.database.get(`prefix_${msg.channel.guild.id}`) || client.config.PREFIX;
+    const customPrefix = client.config.PREFIX
+    let prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+    if (msg.content.match(prefixMention)) {
+        msg.channel.createMessage(`Hey customers! You can call me by doing \`${customPrefix}help\``)
+    }
+
+    if(!msg.content.startsWith(customPrefix)) return;
     if(!msg.channel.permissionsOf(client.user.id).has("sendMessages")) return;
 
-    let args = msg.content.slice(client.config.PREFIX.length).split(' '); // eslint-disable-line
+    let args = msg.content.slice(customPrefix.length).split(' '); // eslint-disable-line
     let command = args.shift().toLowerCase();
 
     if (client.aliases.has(command)) {

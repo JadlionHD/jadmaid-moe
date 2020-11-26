@@ -5,7 +5,7 @@ const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
 const path = require("path");
 
-let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility"];
+let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
 //let nested_folder = ["Testing"];
 
 class ErisBot extends Client {
@@ -23,6 +23,7 @@ class ErisBot extends Client {
         this._eventLoader(this);
         this.fetch = require('axios');
         this.snipe = new Map();
+        this.database = require("quick.db")
     };
 
 

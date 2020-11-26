@@ -1,19 +1,18 @@
 const fs = require("fs");
-//const db = require("quick.db");
 
 exports.run = function (client, msg, args) {
 	let commands = Array.from(client.commands.keys()).sort().join(', ');
 	let user = msg.author;
-    //let customPrefix = db.get(`prefix_${msg.channel.guild.id}`);
-    //if(customPrefix === null) customPrefix = client.config.PREFIX;
     let findOwner = client.config.ownerID[0];
     let getOwner = client.users.get(findOwner);
+    //let customPrefix = client.database.get(`prefix_${msg.channel.guild.id}`) || client.config.PREFIX;
+    let customPrefix = client.config.PREFIX;
 
     if(args[0] && client.commands.has(args[0])) {
         let msgReply = {
             embed: {
                 color: client.config.colors.success,
-                title: `Command: ${client.config.PREFIX}${args[0]}`,
+                title: `Command: ${customPrefix}${args[0]}`,
                 description: `
 **Description:** \`${client.commands.get(args[0]).help.description}\`
 **Cooldown:** \`${client.commands.get(args[0]).help.cooldown} seconds\`
@@ -41,8 +40,8 @@ ${client.commands.get(args[0]).help.example}
                 title: `<:GrowScan9000:535054816498679838> List commands`,
                 description: `
  \`\`\`yaml
-• Prefix: ${client.config.PREFIX}
-• Help commands: ${client.config.PREFIX}help
+• Prefix: ${customPrefix}
+• Help commands: ${customPrefix}help
 • Website: https://jadmaid.xyz
 • Support server: https://discord.gg/zCr2jeZ
 • Do j!help <commands> to see detail command!
@@ -77,6 +76,12 @@ ${fs.readdirSync(`${process.cwd()}/commands/growtopia`).map(str => `\`${str[0] +
                         name: `<:Kewlgurl:709312006167068704> Anime commands:`,
                         value: `
 ${fs.readdirSync(`${process.cwd()}/commands/anime`).map(str => `\`${str[0] + str.slice(1)}\` `).join(" ").replace(/.js/g, '')}
+`
+                    },
+                    {
+                        name: `🔧 Moderation`,
+                        value: `
+${fs.readdirSync(`${process.cwd()}/commands/moderation`).map(str => `\`${str[0] + str.slice(1)}\``).join(" ").replace(/.js/g, '')}
 `
                     },
                     {
