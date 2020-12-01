@@ -1,5 +1,4 @@
 const ms = require("ms");
-const timeOut = new Map();
 
 module.exports = async (client, msg) => {
 
@@ -46,9 +45,9 @@ module.exports = async (client, msg) => {
     if(client.commands.get(command).help) {
         const current = client.cooldown.get(`${command}-${msg.author.id}`);
         const cdTime = client.commands.get(command).help.cooldown * 1000;
-        if(!current) client.cooldown.set(`${command}-${msg.author.id}`, 1) && timeOut.set(`${command}-${msg.author.id}`, curTime);
+        if(!current) client.cooldown.set(`${command}-${msg.author.id}`, 1) && client.timeOut.set(`${command}-${msg.author.id}`, curTime);
         else {
-            let expirationTime = timeOut.get(`${command}-${msg.author.id}`) + cdTime;
+            let expirationTime = client.timeOut.get(`${command}-${msg.author.id}`) + cdTime;
             let timeLeft = expirationTime - curTime;
             if(current >= client.commands.get(command).help.ratelimit) return msg.channel.createMessage(`${msg.author.mention} You are too quick using ${command} command! Please wait **${ms(timeLeft)}**`).then((message) => {
                 setTimeout(() => {
@@ -60,7 +59,7 @@ module.exports = async (client, msg) => {
 
         setTimeout(() => {
             client.cooldown.delete(`${command}-${msg.author.id}`);
-            timeOut.delete(`${command}-${msg.author.id}`)
+            client.timeOut.delete(`${command}-${msg.author.id}`)
         }, client.commands.get(command).help.cooldown * 1000)
 
         try {

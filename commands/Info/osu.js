@@ -39,7 +39,7 @@ exports.run = function(client, msg, args) {
 **Modes:** ${modesName[args[1]] ? modesName[args[1]] : "osu!standard"}
 **UserID:** ${userBody.user_id}
 **Username:** ${userBody.username}
-**Level:** ${Math.round(userBody.level)}
+**Level:** ${userBody.level}
 **Join Date:** ${userBody.join_date}
 **Total Playcount:** ${userBody.playcount}
 **Total Score:** ${userBody.total_score}

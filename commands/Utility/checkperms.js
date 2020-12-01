@@ -6,17 +6,19 @@ exports.run = function(client, msg, args) {
     let msgEmbed = {
     	embed: {
     		color: client.config.colors.success,
-    		description: ``,
+    		description: `**Allowed Permission:**\n`,
             author: {
-                name: `${user.username} Permission`,
+                name: `${user.username}`,
                 icon_url: user.dynamicAvatarURL("", 4096)
             }
     	}
     }
-
 	Object.entries(msg.channel.permissionsOf(user.id).json).forEach(([key, val]) => {
-		msgEmbed.embed.description += `**${key}**, `
+		msgEmbed.embed.description += `${key}, `
 	})
+    if(msgEmbed.embed.description.includes("administrator")) {
+        msgEmbed.embed.description += `\n\n**Key Permission:**\nServer Admin`
+    }
     msg.channel.createMessage(msgEmbed)
 }
 

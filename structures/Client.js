@@ -4,6 +4,8 @@ const { Client, Collection } = require('eris');
 const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
 const path = require("path");
+require("dotenv").config();
+const { Database } = require("quickmongo");
 
 let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
 //let nested_folder = ["Testing"];
@@ -23,7 +25,8 @@ class ErisBot extends Client {
         this._eventLoader(this);
         this.fetch = require('axios');
         this.snipe = new Map();
-        this.database = require("quick.db")
+        this.database = new Database(process.env.MONGO_URL);
+        this.timeOut = new Map();
     };
 
 
