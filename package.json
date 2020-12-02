@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node app.js",
     "lint": "eslint --ignore-path .gitignore \"**/*.js\"",
-    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
