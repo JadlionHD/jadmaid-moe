@@ -24,7 +24,6 @@ class ErisBot extends Client {
         this._loadCommands();
         this._eventLoader(this);
         this.fetch = require('axios');
-        this.snipe = new Map();
         this.database = new Database(process.env.MONGO_URL);
         this.timeOut = new Map();
     };
