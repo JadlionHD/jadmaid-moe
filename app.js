@@ -33,7 +33,7 @@ setTimeout(() => {
 	console.log(`[SYSTEM] [${client.util.getCurrentTime()}] Posted Server Count`);
 }, 15 * 1000)
 
-require("./test/hrgram.js")(client);
+require("./misc/hrgram.js")(client);
 
 
 
