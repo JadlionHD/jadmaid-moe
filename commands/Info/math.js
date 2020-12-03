@@ -2,7 +2,7 @@ const mathjs = require("mathjs");
 
 exports.run = function(client, msg, args) {
 
-	if(!args.join(" "))
+	if(!args.join(" ") || args.join(" ").includes(":") || args.join(" ").includes("config"))
 		return msg.channel.createMessage("<:cross:762537848691752960> Please enter a valid number that you want to calculate");
 	
 	try {
