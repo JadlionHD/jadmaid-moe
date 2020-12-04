@@ -3,6 +3,7 @@ exports.run = function (client, msg, args) {
 	let guild = msg.channel.guild;
 	let botCount = guild.members.filter(member => member.user.bot).length;
 	let owner = guild.members.get(guild.ownerID).user;
+    if(!owner) owner = msg.channel.guild.fetchMembers({userIDs: guild.ownerID})
     let user = msg.author;
     let verifyLevel = ["NONE", "LOW", "MEDIUM", "HIGH", "VERY HIGH"];
 

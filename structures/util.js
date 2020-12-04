@@ -1,5 +1,6 @@
 const axios = require('axios');
 const Eris = require("eris");
+const request = require("request");
 
 module.exports = class Util {    
    static randomNumber(min, max) {
