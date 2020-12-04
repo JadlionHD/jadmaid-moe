@@ -150,9 +150,6 @@ function handleResults (results) {
 
 
 exports.run = (client, msg, args) => {
-	const owners = client.config.ownerID.forEach(async(owner) => {
-		if(msg.author.id !== owner) return;
-	})
 	const [classname, search] = args.join(' ').split(/[#. ]/);
 	if (!classname) {
 		return msg.channel.createMessage({
