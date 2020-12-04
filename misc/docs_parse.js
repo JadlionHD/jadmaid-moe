@@ -147,8 +147,6 @@ for (const doclet of rawDocsData) {
 	}
 }
 
-console.log(`Loaded documentation for eris@${erisPackage.version}`);
-
 module.exports = {
 	classes: classes.sort((a, b) => a.name.localeCompare(b.name)),
 	constants,

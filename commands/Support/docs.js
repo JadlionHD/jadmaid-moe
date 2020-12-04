@@ -8,7 +8,7 @@ const memberCategories = ['properties', 'methods', 'events'];
 const embedDefaults = {
 	color: 0xC0C0C0,
 	footer: {
-		text: `Docs generated from eris@${erisPackage.version} | j!docs Class#property`,
+		text: `Eris (v${erisPackage.version}) | j!docs Class#property`,
 	},
 };
 
