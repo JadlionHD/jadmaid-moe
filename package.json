@@ -4,6 +4,7 @@
   "description": "A jadmaid bot using eris",
   "main": "app.js",
   "scripts": {
+    "jsdoc": "node_modules/.bin/jsdoc node_modules/eris/lib -r -X -d console",
     "start": "node app.js"
   },
   "repository": {
@@ -24,6 +25,7 @@
     "dotenv": "^8.2.0",
     "eris": "^0.14.0",
     "fs": "^0.0.2",
+    "jsdoc": "^3.6.6",
     "mathjs": "^7.2.0",
     "moment-timezone": "^0.5.31",
     "ms": "^2.1.2",
