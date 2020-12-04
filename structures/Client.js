@@ -7,8 +7,8 @@ const path = require("path");
 require("dotenv").config();
 const { Database } = require("quickmongo");
 
-let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
-//let nested_folder = ["Testing"];
+//let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
+let nested_folder = ["Testing", "Support"];
 
 class ErisBot extends Client {
 

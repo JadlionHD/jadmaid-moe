@@ -15,10 +15,10 @@ exports.run = async (client, msg, args) => {
       output = output.replace(new RegExp(client.config.TOKEN, 'gi'), '*')
 
       if (output.length > 1024) {
-          const postCode = await client.util.haste(output);
+          console.log(output)
             msg.channel.createMessage({embed: {
             color: client.config.colors.success,
-            description: postCode,
+            description: client.util.codeBlock("Output more than 1024 length! i put this on console.log", "js"),
             fields: [
               {name: 'Type', value: client.util.codeBlock(type, "js")}
             ]

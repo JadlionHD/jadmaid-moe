@@ -4,7 +4,8 @@ exports.run = function(client, msg, args) {
 
 	if(!args.join(" ") || args.join(" ").includes(":") || args.join(" ").includes("config"))
 		return msg.channel.createMessage("<:cross:762537848691752960> Please enter a valid number that you want to calculate");
-	
+	if(args.join(" ").length > 150)
+		return msg.channel.createMessage("Woah woah woah, That's too much numbers");
 	try {
 		let msgEmbed = {
 			embed: {
