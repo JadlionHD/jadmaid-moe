@@ -7,8 +7,8 @@ const path = require("path");
 require("dotenv").config();
 const { Database } = require("quickmongo");
 
-let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
-//let nested_folder = ["Testing", "Support"];
+//let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
+let nested_folder = ["Testing", "Support"];
 
 class ErisBot extends Client {
 
@@ -23,6 +23,7 @@ class ErisBot extends Client {
         this.cooldown = new Collection();
         this._loadCommands();
         this._eventLoader(this);
+        this._miscLoader();
         this.fetch = require('axios');
         this.database = new Database(process.env.MONGO_URL);
         this.timeOut = new Map();
@@ -56,6 +57,10 @@ class ErisBot extends Client {
             const file = require(`../events/${event}`);
             client.on(event.split(".")[0], (...args) => file(client, ...args));
         }
+    }
+
+    _miscLoader() {
+        require("../misc/hrgram.js")(this) // might using for loop instad later.
     }
 }
 
