@@ -60,7 +60,10 @@ class ErisBot extends Client {
     }
 
     _miscLoader() {
-        require("../misc/hrgram.js")(this) // might using for loop instead later.
+        const misc = readdirSync("./misc/others");
+        for (const other of misc) {
+            require(`../misc/others/${other}`)(this)
+        }
     }
 }
 
