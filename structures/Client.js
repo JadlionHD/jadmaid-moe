@@ -60,7 +60,7 @@ class ErisBot extends Client {
     }
 
     _miscLoader() {
-        require("../misc/hrgram.js")(this) // might using for loop instad later.
+        require("../misc/hrgram.js")(this) // might using for loop instead later.
     }
 }
 

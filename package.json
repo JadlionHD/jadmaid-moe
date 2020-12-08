@@ -34,5 +34,8 @@
     "quickmongo": "^2.0.6",
     "request": "^2.88.2",
     "scrape-it": "^5.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0"
   }
 }
