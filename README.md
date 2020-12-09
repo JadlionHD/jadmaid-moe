@@ -1,4 +1,4 @@
-# discord-jadmaid-eris
+# jadmaid-moe
 Bot that made with Eris Library
 
 # License
