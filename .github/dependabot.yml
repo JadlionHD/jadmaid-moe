@@ -4,5 +4,6 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "21:00"
-  open-pull-requests-limit: 10
+    time: "06:00"
+    timezone: Asia/Jakarta
+  open-pull-requests-limit: 99
