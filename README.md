@@ -6,4 +6,4 @@ Pull Request might be flooded with dependabot for updating the dependencies pack
 You can open one Pull Request for kind of new features bot.
 
 # License
-BSD 3 Clause. More info about the license, click [here](https://github.com/JadlionHD/jadmaid-moe/blob/master/LICENSE)
+BSD 3-Clause "New" or "Revised" | More info about the license, click [here](https://github.com/JadlionHD/jadmaid-moe/blob/master/LICENSE)
