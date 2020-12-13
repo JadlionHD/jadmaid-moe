@@ -6,7 +6,7 @@ Pull Request might be flooded with dependabot for updating the dependencies pack
 You can open one Pull Request for kind of new features bot.
 
 # Installing
-- `npm install` or `yarn` to install modules
+- `npm install` or `yarn install` to install modules
 - `npm start` or `yarn run start` to start the bot
 
 # License
