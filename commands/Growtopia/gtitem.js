@@ -1,7 +1,7 @@
 const scrape = require("scrape-it");
 const request = require("request");
 const cheerio = require("cheerio");
-const itemDB = require('../../database.json');
+const itemDB = require('../../gtitems.json');
 
 exports.run = function (client, msg, args) {
 	let say = args.join(" ");
