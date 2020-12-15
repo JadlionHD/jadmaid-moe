@@ -7,8 +7,8 @@ const path = require("path");
 require("dotenv").config();
 const { Database } = require("quickmongo");
 
-//let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
-let nested_folder = ["Testing", "Support"];
+let nested_folder = ["Anime", "Fun", "Growtopia", "Info", "Support", "Utility", "Moderation"];
+//let nested_folder = ["Testing", "Support"];
 
 class ErisBot extends Client {
 
@@ -24,8 +24,7 @@ class ErisBot extends Client {
         this._loadCommands();
         this._eventLoader(this);
         this._miscLoader();
-        this.fetch = require('axios');
-        this.database = new Database(process.env.MONGO_URL);
+        //this.database = new Database(process.env.MONGO_URL);
         this.timeOut = new Map();
     };
 
