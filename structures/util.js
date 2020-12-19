@@ -3,7 +3,7 @@ const Eris = require("eris");
 const request = require("request");
 
 module.exports = class Util {    
-   static randomNumber(min, max) {
+    static randomNumber(min, max) {
         if (!(max instanceof Number) || !(min instanceof Number)) {
             return null;
         }
@@ -16,7 +16,7 @@ module.exports = class Util {
         return random;
     };
 
-   static randomString(length, useCapital, useNumber) {
+    static randomString(length, useCapital, useNumber) {
         if (
             !(length instanceof Number) ||
             !(useCapital instanceof Boolean) ||
@@ -44,22 +44,6 @@ module.exports = class Util {
         }
 
         return strings;
-    };
-
-    static createUUID() {
-        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-            const r = (Math.random() * 16) | 0,
-                v = c == "x" ? r : (r & 0x3) | 0x8;
-
-            return v.toString(16);
-        });
-    };
-  
-    static async haste(text) {
-      
-      const req = await axios.post("https://haste.shrf.xyz/documents", { text });
-      return `https://haste.shrf.xyz/${req.data.key}`
-      
     };
   
     static timeParser(ms){
@@ -156,8 +140,8 @@ module.exports = class Util {
     return true;
   };
   
-   static clean (text) {
-    if (typeof(text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    static clean (text) {
+        if (typeof(text) === "string") return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
     
      else
     
