@@ -1,6 +1,10 @@
 # jadmaid-moe
 Bot that made with Eris Library
 
+<a href="https://top.gg/bot/704669618719162449">
+    <img src="https://top.gg/api/widget/704669618719162449.svg" alt="JadMaid" />
+</a>
+
 # Installing
 - `npm install` or `yarn install` to install modules
 - `npm start` or `yarn run start` to start the bot
