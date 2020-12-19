@@ -1,5 +1,4 @@
 # jadmaid-moe
-Bot that made with Eris Library
 
 <a href="https://top.gg/bot/704669618719162449">
     <img src="https://top.gg/api/widget/704669618719162449.svg" alt="JadMaid" />
