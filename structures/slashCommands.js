@@ -24,6 +24,10 @@ class DiscordSlash {
 		return this.client.requestHandler.request("POST", APPLICATION_GUILD_COMMANDS(this.clientID, guildID), true, data);
 	}
 
+	editGuildCommand(data, guildID, commandID) {
+		return this.client.requestHandler.request("PATCH", APPLICATION_GUILD_COMMAND(this.clientID, guildID, commandID), true, data)
+	}
+
 	deleteGuildCommand(commandID, guildID) {
 		return this.client.requestHandler.request("DELETE", APPLICATION_GUILD_COMMAND(this.clientID, guildID, commandID), true);
 	}
@@ -32,12 +36,16 @@ class DiscordSlash {
 		return this.client.requestHandler.request("GET", APPLICATION_COMMANDS(this.clientID), true);
 	}
 
-	createCommand(data, guildID) {
+	createCommand(data) {
 		return this.client.requestHandler.request("POST", APPLICATION_COMMANDS(this.clientID), true, data);
 	}
 
-	deleteCommand(commandID, guildID) {
+	deleteCommand(commandID) {
 		return this.client.requestHandler.request("DELETE", APPLICATION_COMMAND(this.clientID, commandID), true);
+	}
+
+	editCommand(data, commandID) {
+		return this.client.requestHandler.request("PATCH", APPLICATION_COMMAND(this.clientID, commandID), true, data);
 	}
 }
 
