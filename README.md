@@ -5,7 +5,7 @@
 </a>
 
 # Installing
-- `npm install` or `yarn install` to install modules
+- `npm install` or `yarn` to install modules
 - `npm start` or `yarn run start` to start the bot
 
 # Contributing
