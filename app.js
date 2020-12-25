@@ -6,7 +6,6 @@
 */
 
 require("dotenv").config();
-const cron = require("cron");
 const ErisClient = require('./structures/Client.js');
 const client = new ErisClient(require('./config.js'), {
 	maxShards: 'auto',
@@ -22,16 +21,21 @@ const client = new ErisClient(require('./config.js'), {
 		VOICE_STATE_UPDATE: true,
 	}
 });
-const request = require("request");
-const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBL_TOKEN, {
-	statsInterval: 1800000
-}, client)
+const topgg = require("@top-gg/sdk");
+const dbl = new topgg.Api(process.env.DBL_TOKEN);
 
 setTimeout(() => {
-	dbl.postStats(client.guilds.size);
+	dbl.postStats({
+		serverCount: client.guilds.size,		
+	})
 	console.log(`[SYSTEM] [${client.util.getCurrentTime()}] Posted Server Count`);
 }, 15 * 1000)
 
+setInterval(() => {
+	dbl.postStats({
+		serverCount: client.guilds.size,		
+	})
+	console.log(`[SYSTEM] [${client.util.getCurrentTime()}] Posted Server Count`);
+}, 1800000)
 
 client.connect();

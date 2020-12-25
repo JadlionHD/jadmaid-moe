@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/JadlionHD/jadmaid-moe#readme",
   "dependencies": {
+    "@top-gg/sdk": "^3.0.5",
     "axios": "^0.21.0",
     "cheerio": "^1.0.0-rc.5",
     "cron": "^1.8.2",
-    "dblapi.js": "^2.4.1",
     "dotenv": "^8.2.0",
     "eris": "^0.14.0",
     "fs": "^0.0.2",
