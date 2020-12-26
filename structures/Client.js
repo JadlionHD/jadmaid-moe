@@ -3,7 +3,6 @@ require("pluris")(Eris, {embed: false, endpoints: false, messageGuild: false, ro
 const { Client, Collection } = require('eris');
 const { readdir, readdirSync } = require('fs');
 const fs = require("fs");
-const path = require("path");
 require("dotenv").config();
 const { Database } = require("quickmongo");
 
@@ -59,6 +58,9 @@ class ErisBot extends Client {
     }
 
     _miscLoader() {
+        // api
+        require("../misc/api/routes.js");
+
         const misc = readdirSync("./misc/others");
         for (const other of misc) {
             require(`../misc/others/${other}`)(this)
