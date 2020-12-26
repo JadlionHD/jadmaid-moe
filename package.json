@@ -36,5 +36,9 @@
     "request": "^2.88.2",
     "scrape-it": "^5.2.4"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  
+  "engines": {
+    "node": ">=12.9.0"
+  }
 }
