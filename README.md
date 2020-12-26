@@ -15,5 +15,5 @@ You can open one Pull Request for kind of new features bot.
 # License
 BSD 3-Clause "New" or "Revised" | More info about the license, click [here](https://github.com/JadlionHD/jadmaid-moe/blob/master/LICENSE)
 
-# Questions
+# Support
 Join our [Discord Server](https://discord.com/invite/zCr2jeZ) if you have any questions
