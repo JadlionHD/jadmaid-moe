@@ -15,10 +15,10 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.7.tgz#fee7b39fe809d0e73e5b25eecaf5780ef3d73056"
   integrity sha512-oWR02Ubp4xTLCAqPRiNIuMVgNO5Aif/xpXtabhzW2HWUD47XJsAB4Zd/Rg30+XeQA3juXigV7hlquOTmwqLiwg==
 
-"@top-gg/sdk@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@top-gg/sdk/-/sdk-3.0.7.tgz#fb7104ca6c9d81ac85e0075b2d852ebc320e0c87"
-  integrity sha512-Ie8hEalxV9knQexkxni+6ld0oYchWnj1Kvm3fOslIFkYSC5a34AZAEZcUc5fecauq6WwIMBbkgkvCDaIZc3clg==
+"@top-gg/sdk@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@top-gg/sdk/-/sdk-3.0.8.tgz#da552e73d99feafc856c3a4922934097954c2d85"
+  integrity sha512-oZ4mw8LpD7k3jt1bL/+MngOVO8Qer9mbcGhlmROqA/bl8CpYdmhiKbkgtGt/uL8yhehTwGC5wzhtEZMbjC+CaA==
   dependencies:
     node-fetch "^2.6.1"
     raw-body "^2.4.1"
