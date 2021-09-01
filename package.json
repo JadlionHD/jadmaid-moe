@@ -30,7 +30,7 @@
     "ms": "^2.1.3",
     "path": "^0.12.7",
     "pluris": "^0.3.5",
-    "quickmongo": "^3.0.2",
+    "quickmongo": "^4.0.0",
     "request": "^2.88.2",
     "restana": "^4.9.1",
     "scrape-it": "^5.3.1"
