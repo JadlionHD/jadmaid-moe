@@ -19,7 +19,7 @@
   "homepage": "https://github.com/JadlionHD/jadmaid-moe#readme",
   "dependencies": {
     "@top-gg/sdk": "^3.1.1",
-    "axios": "^0.21.1",
+    "axios": "^0.21.3",
     "cheerio": "^1.0.0-rc.6",
     "cron": "^1.8.2",
     "dotenv": "^9.0.2",
