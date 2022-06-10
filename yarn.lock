@@ -417,7 +417,7 @@ eris-reactions@^0.1.2:
   resolved "https://registry.yarnpkg.com/eris-reactions/-/eris-reactions-0.1.3.tgz#cd0b95d0a947ae173f11f085d744882d2be4a436"
   integrity sha512-lcqxCconH4Ca5GdUR1qUWQDHHv64JowIpRZZewRTrPHvXbGZyoE1BJZ8LETux+NSye4WIrEiysnzxfPBLZT6wg==
 
-eris@^0.15.0, eris@^0.15.1:
+eris@^0.15.1:
   version "0.15.1"
   resolved "https://registry.yarnpkg.com/eris/-/eris-0.15.1.tgz#6b44e6d4675c271def7484725a0edede9e798960"
   integrity sha512-IQ3BPW6OjgFoqjdh+irPOa1jFlkotk+WNu2GQQ7QAQfbzQEPZgn+F+hpOxfMUXPHOZMX4sPKLkVDkMHAssBYhw==
@@ -921,12 +921,12 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-pluris@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/pluris/-/pluris-0.3.5.tgz#5c60a92afca4001b22e2ceade614237d68b752eb"
-  integrity sha512-5l+BZdvTBBNfObWuuwp5xNA/zpZTJ9sUiU1EZByYvW6mhwI4RjUfCmYbn9cV0IGnuU7BTpPNekAnz4Z26jRrcw==
+pluris@^0.3.7:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/pluris/-/pluris-0.3.7.tgz#f14a83e0c29aa7d277ea2c3c4989fc8887b55ca3"
+  integrity sha512-YpWpL7XOLizpp7760RyT21aVrZFvxgPHvBB+bsWJq9FWmEH8ush+vHg/M6jLtxqLpnxALoWTOer/jcXCCu+w5Q==
   dependencies:
-    eris "^0.15.0"
+    eris "^0.15.1"
   optionalDependencies:
     eris-reactions "^0.1.2"
 
